@@ -1,0 +1,97 @@
+﻿@page "/"
+@rendermode InteractiveServer
+@using CentralizedDashboard.Models
+@using CentralizedDashboard.Services
+@inject MesinService ServiceKita 
+@* ^ Memanggil service MySQL *@
+
+<PageTitle>Monitoring Dashboard</PageTitle>
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="text-primary fw-bold">🏭 Centralized System</h1>
+            <p class="text-muted mb-0">Live Monitoring from Mitsubishi FX5U</p>
+        </div>
+        <div class="text-end">
+            <span class="badge bg-light text-dark border p-2 fs-6">
+                🕒 @DateTime.Now.ToString("HH:mm:ss")
+            </span>
+        </div>
+    </div>
+
+    @if (logs == null)
+    {
+        <div class="alert alert-info">
+            <div class="spinner-border spinner-border-sm me-2" role="status"></div>
+            Menghubungkan ke Database...
+        </div>
+    }
+    else
+    {
+        <div class="card shadow border-0">
+            <div class="card-body p-0">
+                <table class="table table-striped table-hover mb-0 align-middle">
+                    <thead class="table-dark">
+                        <tr>
+                            <th class="ps-4">Waktu</th>
+                            <th>Nama Mesin / Shift</th>
+                            <th>Data Error</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in logs)
+                        {
+                            <tr>
+                                <td class="ps-4">@item.waktu.ToString("dd/MM/yyyy HH:mm:ss")</td>
+                                <td class="fw-bold text-primary">@item.nama_mesin</td>
+                                <td>
+                                    <span class="badge bg-secondary font-monospace">
+                                        Reg: @item.kode_error
+                                    </span>
+                                </td>
+                                <td>
+                                    @if(item.kode_error > 0)
+                                    {
+                                        <span class="badge bg-danger">⚠️ ERROR</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-success">NORMAL</span>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    private List<ErrorLog>? logs;
+    private System.Threading.Timer? timer;
+
+    protected override void OnInitialized()
+    {
+        LoadData();
+
+        timer = new System.Threading.Timer(async _ =>
+        {
+            LoadData();
+            await InvokeAsync(StateHasChanged);
+        }, null, 0, 200);
+    }
+
+    private void LoadData()
+    {
+        logs = ServiceKita.GetLatestLogs();
+    }
+
+    public void Dispose()
+    {
+        timer?.Dispose();
+    }
+}
