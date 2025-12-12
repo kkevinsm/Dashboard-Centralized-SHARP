@@ -1,91 +1,93 @@
-/* 1. Container Utama Sidebar */
+/* 1. CONTAINER UTAMA */
 .nav-container {
     height: 100vh;
+    background-color: white;
+    border-right: 1px solid #e0e0e0;
     display: flex;
     flex-direction: column;
-    background-color: white; 
-    border-right: 1px solid #e0e0e0;
-    transition: width 0.3s ease; /* PENTING: Animasi gerak */
+    transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     overflow: hidden;
     white-space: nowrap;
+    position: sticky;
+    top: 0;
 }
 
-/* LEBAR: Expanded (250px) vs Collapsed (70px) */
 .nav-container.expanded { width: 250px; }
-.nav-container.collapsed { width: 70px; }
+.nav-container.collapsed { width: 80px; }
 
 
-/* 2. LOGO (Area Klik) */
+/* 2. LOGO */
 .logo-section {
-    height: 60px;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid #f0f0f0;
-    margin-bottom: 1rem;
-    padding: 10px;
-    
-    /* PENTING: Agar terlihat bisa diklik */
-    cursor: pointer; 
-    transition: background-color 0.2s;
+    margin-bottom: 10px;
+    cursor: pointer;
 }
-
-/* Efek saat mouse di atas logo */
-.logo-section:hover {
-    background-color: #f8f9fa; 
-}
-
-/* Ukuran Gambar */
-.logo-img-large {
-    max-width: 150px;
-    max-height: 40px;
-    object-fit: contain;
-}
-
-.logo-img-small {
-    max-width: 35px;
-    max-height: 35px;
-    object-fit: contain;
-}
+.logo-section:hover { background-color: #f9fafb; }
+.logo-img-large { max-width: 150px; max-height: 40px; object-fit: contain; }
+.logo-img-small { max-width: 40px; max-height: 40px; object-fit: contain; }
 
 
-/* 3. MENU ITEMS */
+/* 3. MENU LINK (BASE STYLE) */
 .nav-item {
     padding: 0 10px;
-}
-
-.nav-link {
-    color: #64748b;
-    border-radius: 8px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.2s;
     margin-bottom: 5px;
 }
 
-/* Posisi Icon di tengah */
-.nav-link i {
-    font-size: 1.25rem;
-    min-width: 50px; /* Area icon tetap stabil */
+.nav-link {
     display: flex;
-    justify-content: center;
-}
-
-.link-text {
-    margin-left: 5px;
+    align-items: center;
+    height: 50px;
+    border-radius: 12px;
+    color: #64748b;
+    text-decoration: none;
+    transition: all 0.2s;
     font-weight: 500;
-    font-size: 0.95rem;
+    cursor: pointer;
 }
 
-/* Hover & Active State */
+.nav-link i {
+    font-size: 1.4rem;
+}
+
+
+/* ============================================= */
+/* LOGIKA POSISI */
+/* ============================================= */
+
+/* KONDISI A: EXPANDED (TERBUKA) -> IKON DI KIRI, TEKS DI SAMPING */
+.nav-container.expanded .nav-link {
+    justify-content: flex-start;
+    padding-left: 20px;
+}
+
+.nav-container.expanded .nav-link i {
+    margin-right: 15px;
+    min-width: 24px;
+    text-align: center;
+}
+
+
+/* KONDISI B: COLLAPSED (TERTUTUP) -> IKON DI TENGAH */
+.nav-container.collapsed .nav-link {
+    justify-content: center;
+    padding: 0;
+    text-align: center;
+}
+
+.nav-container.collapsed .nav-link i {
+    margin: 0 auto;
+    display: block;
+}
+
+
+/* 4. WARNA & HOVER */
 .nav-link:hover {
     background-color: #f1f5f9;
     color: #0d6efd;
 }
-
 .nav-link.active {
     background-color: #eff6ff;
     color: #0d6efd;

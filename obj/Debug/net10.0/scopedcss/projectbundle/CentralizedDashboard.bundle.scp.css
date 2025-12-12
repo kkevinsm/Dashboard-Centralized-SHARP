@@ -80,94 +80,96 @@ article.content[b-g9mfp1a9qs] {
     /* Untuk sementara biarkan default dulu */
 }
 /* /Components/Layout/NavMenu.razor.rz.scp.css */
-/* 1. Container Utama Sidebar */
+/* 1. CONTAINER UTAMA */
 .nav-container[b-ljs6ng1uoh] {
     height: 100vh;
+    background-color: white;
+    border-right: 1px solid #e0e0e0;
     display: flex;
     flex-direction: column;
-    background-color: white; 
-    border-right: 1px solid #e0e0e0;
-    transition: width 0.3s ease; /* PENTING: Animasi gerak */
+    transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     overflow: hidden;
     white-space: nowrap;
+    position: sticky;
+    top: 0;
 }
 
-/* LEBAR: Expanded (250px) vs Collapsed (70px) */
 .nav-container.expanded[b-ljs6ng1uoh] { width: 250px; }
-.nav-container.collapsed[b-ljs6ng1uoh] { width: 70px; }
+.nav-container.collapsed[b-ljs6ng1uoh] { width: 80px; }
 
 
-/* 2. LOGO (Area Klik) */
+/* 2. LOGO */
 .logo-section[b-ljs6ng1uoh] {
-    height: 60px;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid #f0f0f0;
-    margin-bottom: 1rem;
-    padding: 10px;
-    
-    /* PENTING: Agar terlihat bisa diklik */
-    cursor: pointer; 
-    transition: background-color 0.2s;
+    margin-bottom: 10px;
+    cursor: pointer;
 }
-
-/* Efek saat mouse di atas logo */
-.logo-section:hover[b-ljs6ng1uoh] {
-    background-color: #f8f9fa; 
-}
-
-/* Ukuran Gambar */
-.logo-img-large[b-ljs6ng1uoh] {
-    max-width: 150px;
-    max-height: 40px;
-    object-fit: contain;
-}
-
-.logo-img-small[b-ljs6ng1uoh] {
-    max-width: 35px;
-    max-height: 35px;
-    object-fit: contain;
-}
+.logo-section:hover[b-ljs6ng1uoh] { background-color: #f9fafb; }
+.logo-img-large[b-ljs6ng1uoh] { max-width: 150px; max-height: 40px; object-fit: contain; }
+.logo-img-small[b-ljs6ng1uoh] { max-width: 40px; max-height: 40px; object-fit: contain; }
 
 
-/* 3. MENU ITEMS */
+/* 3. MENU LINK (BASE STYLE) */
 .nav-item[b-ljs6ng1uoh] {
     padding: 0 10px;
-}
-
-.nav-link[b-ljs6ng1uoh] {
-    color: #64748b;
-    border-radius: 8px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.2s;
     margin-bottom: 5px;
 }
 
-/* Posisi Icon di tengah */
-.nav-link i[b-ljs6ng1uoh] {
-    font-size: 1.25rem;
-    min-width: 50px; /* Area icon tetap stabil */
+.nav-link[b-ljs6ng1uoh] {
     display: flex;
-    justify-content: center;
-}
-
-.link-text[b-ljs6ng1uoh] {
-    margin-left: 5px;
+    align-items: center;
+    height: 50px;
+    border-radius: 12px;
+    color: #64748b;
+    text-decoration: none;
+    transition: all 0.2s;
     font-weight: 500;
-    font-size: 0.95rem;
+    cursor: pointer;
 }
 
-/* Hover & Active State */
+.nav-link i[b-ljs6ng1uoh] {
+    font-size: 1.4rem;
+}
+
+
+/* ============================================= */
+/* LOGIKA POSISI */
+/* ============================================= */
+
+/* KONDISI A: EXPANDED (TERBUKA) -> IKON DI KIRI, TEKS DI SAMPING */
+.nav-container.expanded .nav-link[b-ljs6ng1uoh] {
+    justify-content: flex-start;
+    padding-left: 20px;
+}
+
+.nav-container.expanded .nav-link i[b-ljs6ng1uoh] {
+    margin-right: 15px;
+    min-width: 24px;
+    text-align: center;
+}
+
+
+/* KONDISI B: COLLAPSED (TERTUTUP) -> IKON DI TENGAH */
+.nav-container.collapsed .nav-link[b-ljs6ng1uoh] {
+    justify-content: center;
+    padding: 0;
+    text-align: center;
+}
+
+.nav-container.collapsed .nav-link i[b-ljs6ng1uoh] {
+    margin: 0 auto;
+    display: block;
+}
+
+
+/* 4. WARNA & HOVER */
 .nav-link:hover[b-ljs6ng1uoh] {
     background-color: #f1f5f9;
     color: #0d6efd;
 }
-
 .nav-link.active[b-ljs6ng1uoh] {
     background-color: #eff6ff;
     color: #0d6efd;

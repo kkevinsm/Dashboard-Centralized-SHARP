@@ -58,3 +58,95 @@ h1:focus {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
     text-align: start;
 }
+
+/* ========================================== */
+/* NAVMENU STYLES - GLOBAL */
+/* ========================================== */
+
+/* 1. CONTAINER UTAMA */
+.nav-container {
+    height: 100vh;
+    background-color: white;
+    border-right: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    overflow: hidden;
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
+}
+
+.nav-container.expanded { width: 250px; }
+.nav-container.collapsed { width: 80px; }
+
+/* 2. LOGO */
+.logo-section {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.logo-section:hover { background-color: #f9fafb; }
+.logo-img-large { max-width: 150px; max-height: 40px; object-fit: contain; }
+.logo-img-small { max-width: 40px; max-height: 40px; object-fit: contain; }
+
+/* 3. MENU LINK */
+.nav-item {
+    padding: 0 10px;
+    margin-bottom: 5px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    border-radius: 12px;
+    color: #64748b;
+    text-decoration: none;
+    transition: all 0.2s;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.nav-link i {
+    font-size: 1.4rem;
+}
+
+/* EXPANDED: Ikon kiri + Teks samping */
+.nav-container.expanded .nav-link {
+    justify-content: flex-start;
+    padding-left: 20px;
+}
+
+.nav-container.expanded .nav-link i {
+    margin-right: 15px;
+    min-width: 24px;
+    text-align: center;
+}
+
+/* COLLAPSED: Ikon di tengah */
+.nav-container.collapsed .nav-link {
+    justify-content: center;
+    padding: 0;
+    text-align: center;
+}
+
+.nav-container.collapsed .nav-link i {
+    margin: 0 auto;
+    display: block;
+}
+
+/* HOVER & ACTIVE */
+.nav-link:hover {
+    background-color: #f1f5f9;
+    color: #0d6efd;
+}
+
+.nav-link.active {
+    background-color: #eff6ff;
+    color: #0d6efd;
+    font-weight: 600;
+}

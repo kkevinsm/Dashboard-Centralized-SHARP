@@ -2,7 +2,7 @@
 
 <div class="nav-container @(IsCollapsed ? "collapsed" : "expanded")">
     
-    <div class="logo-section" @onclick="ToggleSidebar" title="Klik untuk Buka/Tutup Menu">
+    <div class="logo-section" @onclick="ToggleSidebar" title="Klik untuk Buka/Tutup">
         @if (IsCollapsed)
         {
              <img src="images/logo.svg" alt="WM" class="logo-img-small" />
@@ -45,11 +45,11 @@
 
     </nav>
     
-    </div>
+</div>
 
 @code {
-    // Mulai dalam keadaan Terbuka (False = Expanded)
-    private bool IsCollapsed = false;
+    // Default tertutup (sesuai request)
+    private bool IsCollapsed = true;
 
     private void ToggleSidebar()
     {

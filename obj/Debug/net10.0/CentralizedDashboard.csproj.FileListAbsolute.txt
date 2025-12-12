@@ -149,7 +149,7 @@ D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/scopedcss/Components/Layout/ReconnectModal.razor.rz.scp.css
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/scopedcss/bundle/CentralizedDashboard.styles.css
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/scopedcss/projectbundle/CentralizedDashboard.bundle.scp.css
-/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/6uegklddlt-{0}-w7mf952350-w7mf952350.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/6uegklddlt-{0}-jejtq9bdt4-jejtq9bdt4.gz
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/rv4nz3wfg4-{0}-fzghodh1pd-fzghodh1pd.gz
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/i1nxzmj188-{0}-bqjiyaj88i-bqjiyaj88i.gz
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/86v9akp2ck-{0}-c2jlpeoesf-c2jlpeoesf.gz
@@ -198,8 +198,8 @@ D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/dpe2gwwrye-{0}-w97mql0d9w-w97mql0d9w.gz
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/zo6d5gtz03-{0}-wmp8iwak4q-wmp8iwak4q.gz
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/7i5e3nq74s-{0}-2lgipwaf5j-2lgipwaf5j.gz
-/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/tagc6vob57-{0}-5138o24nlx-5138o24nlx.gz
-/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/3m24nq2v6h-{0}-5138o24nlx-5138o24nlx.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/tagc6vob57-{0}-8ssf9xnh6i-8ssf9xnh6i.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/3m24nq2v6h-{0}-8ssf9xnh6i-8ssf9xnh6i.gz
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/staticwebassets.build.json
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/staticwebassets.build.json.cache
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/staticwebassets.development.json
