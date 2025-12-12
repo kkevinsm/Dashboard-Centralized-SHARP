@@ -6,7 +6,8 @@ namespace CentralizedDashboard.Models
     {
         public int id { get; set; }
         public DateTime waktu { get; set; }
-        public string nama_mesin { get; set; }
-        public int kode_error { get; set; }
+        public string nama_mesin_proses { get; set; }
+        
+        public int data_timer { get; set; }
     }
 }

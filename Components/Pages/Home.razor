@@ -32,29 +32,30 @@
         <div class="card shadow border-0">
             <div class="card-body p-0">
                 <table class="table table-striped table-hover mb-0 align-middle">
-                    <thead class="table-dark">
+                    <thead>
                         <tr>
-                            <th class="ps-4">Waktu</th>
-                            <th>Nama Mesin / Shift</th>
-                            <th>Data Error</th>
-                            <th>Status</th>
+                            <th>Waktu</th>
+                            <th>Nama Mesin & Proses</th>  <th>Data Timer</th>           <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in logs)
                         {
                             <tr>
-                                <td class="ps-4">@item.waktu.ToString("dd/MM/yyyy HH:mm:ss")</td>
-                                <td class="fw-bold text-primary">@item.nama_mesin</td>
+                                <td>@item.waktu.ToString("dd/MM/yyyy HH:mm:ss")</td>
+                                
+                                <td class="fw-bold text-primary">@item.nama_mesin_proses</td>
+                                
                                 <td>
                                     <span class="badge bg-secondary font-monospace">
-                                        Reg: @item.kode_error
+                                        Timer: @item.data_timer
                                     </span>
                                 </td>
+                                
                                 <td>
-                                    @if(item.kode_error > 0)
+                                    @if(item.data_timer > 0) 
                                     {
-                                        <span class="badge bg-danger">⚠️ ERROR</span>
+                                        <span class="badge bg-danger">⚠️ Error/Stop</span>
                                     }
                                     else
                                     {

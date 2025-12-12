@@ -1,6 +1,6 @@
 using MySql.Data.MySqlClient;
 using Dapper;
-using CentralizedDashboard.Models; // Pastikan ini sesuai dengan namespace Model di atas
+using CentralizedDashboard.Models; 
 
 namespace CentralizedDashboard.Services
 {
@@ -15,7 +15,7 @@ namespace CentralizedDashboard.Services
             {
                 connection.Open();
 
-                string sql = "SELECT * FROM error_logs ORDER BY waktu DESC LIMIT 20";
+                string sql = "SELECT * FROM centralized_logs ORDER BY waktu DESC LIMIT 20";
                 
                 var hasil = connection.Query<ErrorLog>(sql).ToList();
                 return hasil;

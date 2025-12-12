@@ -103,3 +103,4 @@ D:\0. SOFTWARE\5.Vscode\Centralized_Dashboard\CentralizedDashboard\obj\Debug\net
 D:\0. SOFTWARE\5.Vscode\Centralized_Dashboard\CentralizedDashboard\obj\Debug\net10.0\CentralizedDashboard.genruntimeconfig.cache
 D:\0. SOFTWARE\5.Vscode\Centralized_Dashboard\CentralizedDashboard\obj\Debug\net10.0\ref\CentralizedDashboard.dll
 D:\0. SOFTWARE\5.Vscode\Centralized_Dashboard\CentralizedDashboard\bin\Debug\net10.0\Dapper.dll
+D:\0. SOFTWARE\5.Vscode\Centralized_Dashboard\CentralizedDashboard\obj\Debug\net10.0\CentralizedDashboard.sourcelink.json
