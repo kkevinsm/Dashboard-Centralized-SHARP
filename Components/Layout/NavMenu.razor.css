@@ -16,7 +16,6 @@
 .nav-container.collapsed { width: 80px; }
 
 
-/* 2. LOGO */
 .logo-section {
     height: 70px;
     display: flex;
@@ -30,7 +29,6 @@
 .logo-img-small { max-width: 40px; max-height: 40px; object-fit: contain; }
 
 
-/* 3. MENU LINK (BASE STYLE) */
 .nav-item {
     padding: 0 10px;
     margin-bottom: 5px;
@@ -53,11 +51,6 @@
 }
 
 
-/* ============================================= */
-/* LOGIKA POSISI */
-/* ============================================= */
-
-/* KONDISI A: EXPANDED (TERBUKA) -> IKON DI KIRI, TEKS DI SAMPING */
 .nav-container.expanded .nav-link {
     justify-content: flex-start;
     padding-left: 20px;
@@ -70,7 +63,6 @@
 }
 
 
-/* KONDISI B: COLLAPSED (TERTUTUP) -> IKON DI TENGAH */
 .nav-container.collapsed .nav-link {
     justify-content: center;
     padding: 0;
@@ -83,7 +75,6 @@
 }
 
 
-/* 4. WARNA & HOVER */
 .nav-link:hover {
     background-color: #f1f5f9;
     color: #0d6efd;

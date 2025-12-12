@@ -3,19 +3,19 @@
 .page[b-g9mfp1a9qs] {
     position: relative;
     display: flex;
-    flex-direction: row; /* PENTING: Agar Sidebar & Main berjejer Kiri-Kanan */
-    height: 100vh; /* Tinggi Full Layar */
-    overflow: hidden; /* Mencegah scroll double */
+    flex-direction: row;
+    height: 100vh; 
+    overflow: hidden;
 }
 
 /* Area Konten Utama (Kanan) */
 main[b-g9mfp1a9qs] {
-    flex: 1; /* Mengambil sisa ruang yang tidak dipakai sidebar */
-    background-color: #f5f7fb; /* Warna abu muda modern */
+    flex: 1; 
+    background-color: #f5f7fb; 
     position: relative;
     display: flex;
     flex-direction: column;
-    overflow-y: auto; /* Agar hanya area konten yang bisa discroll */
+    overflow-y: auto; 
 }
 
 /* Top Bar (Header Kecil di atas konten) */
@@ -28,7 +28,7 @@ main[b-g9mfp1a9qs] {
     align-items: center;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-    flex-shrink: 0; /* Jangan mengecil */
+    flex-shrink: 0;
 }
 
     .top-row[b-g9mfp1a9qs]  a, .top-row[b-g9mfp1a9qs]  .btn-link {
@@ -76,8 +76,6 @@ article.content[b-g9mfp1a9qs] {
         flex-direction: column;
     }
     
-    /* Pada HP, mungkin Anda ingin sidebar di atas atau tersembunyi */
-    /* Untuk sementara biarkan default dulu */
 }
 /* /Components/Layout/NavMenu.razor.rz.scp.css */
 /* 1. CONTAINER UTAMA */
@@ -98,7 +96,6 @@ article.content[b-g9mfp1a9qs] {
 .nav-container.collapsed[b-ljs6ng1uoh] { width: 80px; }
 
 
-/* 2. LOGO */
 .logo-section[b-ljs6ng1uoh] {
     height: 70px;
     display: flex;
@@ -112,7 +109,6 @@ article.content[b-g9mfp1a9qs] {
 .logo-img-small[b-ljs6ng1uoh] { max-width: 40px; max-height: 40px; object-fit: contain; }
 
 
-/* 3. MENU LINK (BASE STYLE) */
 .nav-item[b-ljs6ng1uoh] {
     padding: 0 10px;
     margin-bottom: 5px;
@@ -135,11 +131,6 @@ article.content[b-g9mfp1a9qs] {
 }
 
 
-/* ============================================= */
-/* LOGIKA POSISI */
-/* ============================================= */
-
-/* KONDISI A: EXPANDED (TERBUKA) -> IKON DI KIRI, TEKS DI SAMPING */
 .nav-container.expanded .nav-link[b-ljs6ng1uoh] {
     justify-content: flex-start;
     padding-left: 20px;
@@ -152,7 +143,6 @@ article.content[b-g9mfp1a9qs] {
 }
 
 
-/* KONDISI B: COLLAPSED (TERTUTUP) -> IKON DI TENGAH */
 .nav-container.collapsed .nav-link[b-ljs6ng1uoh] {
     justify-content: center;
     padding: 0;
@@ -165,7 +155,6 @@ article.content[b-g9mfp1a9qs] {
 }
 
 
-/* 4. WARNA & HOVER */
 .nav-link:hover[b-ljs6ng1uoh] {
     background-color: #f1f5f9;
     color: #0d6efd;

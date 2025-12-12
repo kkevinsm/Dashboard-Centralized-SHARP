@@ -2,19 +2,19 @@
 .page[b-g9mfp1a9qs] {
     position: relative;
     display: flex;
-    flex-direction: row; /* PENTING: Agar Sidebar & Main berjejer Kiri-Kanan */
-    height: 100vh; /* Tinggi Full Layar */
-    overflow: hidden; /* Mencegah scroll double */
+    flex-direction: row;
+    height: 100vh; 
+    overflow: hidden;
 }
 
 /* Area Konten Utama (Kanan) */
 main[b-g9mfp1a9qs] {
-    flex: 1; /* Mengambil sisa ruang yang tidak dipakai sidebar */
-    background-color: #f5f7fb; /* Warna abu muda modern */
+    flex: 1; 
+    background-color: #f5f7fb; 
     position: relative;
     display: flex;
     flex-direction: column;
-    overflow-y: auto; /* Agar hanya area konten yang bisa discroll */
+    overflow-y: auto; 
 }
 
 /* Top Bar (Header Kecil di atas konten) */
@@ -27,7 +27,7 @@ main[b-g9mfp1a9qs] {
     align-items: center;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-    flex-shrink: 0; /* Jangan mengecil */
+    flex-shrink: 0;
 }
 
     .top-row[b-g9mfp1a9qs]  a, .top-row[b-g9mfp1a9qs]  .btn-link {
@@ -75,6 +75,4 @@ article.content[b-g9mfp1a9qs] {
         flex-direction: column;
     }
     
-    /* Pada HP, mungkin Anda ingin sidebar di atas atau tersembunyi */
-    /* Untuk sementara biarkan default dulu */
 }
