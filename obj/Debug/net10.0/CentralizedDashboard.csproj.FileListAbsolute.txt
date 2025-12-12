@@ -198,8 +198,6 @@ D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/dpe2gwwrye-{0}-w97mql0d9w-w97mql0d9w.gz
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/zo6d5gtz03-{0}-wmp8iwak4q-wmp8iwak4q.gz
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/7i5e3nq74s-{0}-2lgipwaf5j-2lgipwaf5j.gz
-/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/tagc6vob57-{0}-8ssf9xnh6i-8ssf9xnh6i.gz
-/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/3m24nq2v6h-{0}-8ssf9xnh6i-8ssf9xnh6i.gz
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/staticwebassets.build.json
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/staticwebassets.build.json.cache
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/staticwebassets.development.json
@@ -211,3 +209,5 @@ D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/CentralizedDashboard.pdb
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/CentralizedDashboard.genruntimeconfig.cache
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/ref/CentralizedDashboard.dll
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/tagc6vob57-{0}-2tinfuy06z-2tinfuy06z.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/3m24nq2v6h-{0}-2tinfuy06z-2tinfuy06z.gz
