@@ -2,14 +2,14 @@
 
 <div class="nav-container @(IsCollapsed ? "collapsed" : "expanded")">
     
-    <div class="logo-section">
+    <div class="logo-section" @onclick="ToggleSidebar" title="Klik untuk Buka/Tutup Menu">
         @if (IsCollapsed)
         {
              <img src="images/logo.svg" alt="WM" class="logo-img-small" />
         }
         else
         {
-             <img src="images/logo.svg" alt="SHARP" class="logo-img-small" />
+             <img src="images/logo.svg" alt="SHARP" class="logo-img-large" />
         }
     </div>
 
@@ -17,7 +17,8 @@
         
         <div class="nav-item">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <i class="bi bi-house-door-fill"></i> @if (!IsCollapsed) { <span class="link-text">Home</span> }
+                <i class="bi bi-house-door-fill"></i>
+                @if (!IsCollapsed) { <span class="link-text">Home</span> }
             </NavLink>
         </div>
 
@@ -43,20 +44,13 @@
         </div>
 
     </nav>
-
-    <div class="toggle-section">
-        <button class="btn-toggle" @onclick="ToggleSidebar">
-            <i class="bi @(IsCollapsed ? "bi-chevron-right" : "bi-chevron-left")"></i>
-        </button>
+    
     </div>
 
-</div>
-
 @code {
-    // Variabel penentu status sidebar
+    // Mulai dalam keadaan Terbuka (False = Expanded)
     private bool IsCollapsed = false;
 
-    // Fungsi yang dipanggil saat tombol ditekan
     private void ToggleSidebar()
     {
         IsCollapsed = !IsCollapsed;

@@ -3,19 +3,19 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: white; /* Background Putih */
+    background-color: white; 
     border-right: 1px solid #e0e0e0;
-    transition: width 0.3s ease; /* Animasi Halus */
+    transition: width 0.3s ease; /* PENTING: Animasi gerak */
     overflow: hidden;
     white-space: nowrap;
 }
 
-/* LEBAR SAAT TERBUKA VS TERTUTUP */
+/* LEBAR: Expanded (250px) vs Collapsed (70px) */
 .nav-container.expanded { width: 250px; }
-.nav-container.collapsed { width: 70px; } /* Cukup untuk icon saja */
+.nav-container.collapsed { width: 70px; }
 
 
-/* 2. LOGO */
+/* 2. LOGO (Area Klik) */
 .logo-section {
     height: 60px;
     display: flex;
@@ -24,8 +24,18 @@
     border-bottom: 1px solid #f0f0f0;
     margin-bottom: 1rem;
     padding: 10px;
+    
+    /* PENTING: Agar terlihat bisa diklik */
+    cursor: pointer; 
+    transition: background-color 0.2s;
 }
 
+/* Efek saat mouse di atas logo */
+.logo-section:hover {
+    background-color: #f8f9fa; 
+}
+
+/* Ukuran Gambar */
 .logo-img-large {
     max-width: 150px;
     max-height: 40px;
@@ -45,7 +55,7 @@
 }
 
 .nav-link {
-    color: #64748b; /* Warna Abu-abu Modern */
+    color: #64748b;
     border-radius: 8px;
     height: 45px;
     display: flex;
@@ -56,56 +66,28 @@
     margin-bottom: 5px;
 }
 
-/* PENTING: Mengatur Posisi Icon */
+/* Posisi Icon di tengah */
 .nav-link i {
-    font-size: 1.25rem; /* Ukuran Icon */
-    min-width: 50px; /* Lebar area icon agar pas saat collapsed */
+    font-size: 1.25rem;
+    min-width: 50px; /* Area icon tetap stabil */
     display: flex;
-    justify-content: center; /* Icon selalu di tengah area-nya */
+    justify-content: center;
 }
 
-/* Teks Menu */
 .link-text {
     margin-left: 5px;
     font-weight: 500;
     font-size: 0.95rem;
 }
 
-/* Efek Hover (Mouse Lewat) */
+/* Hover & Active State */
 .nav-link:hover {
     background-color: #f1f5f9;
-    color: #0d6efd; /* Biru */
+    color: #0d6efd;
 }
 
-/* Efek Aktif (Halaman Terpilih) */
 .nav-link.active {
     background-color: #eff6ff;
     color: #0d6efd;
     font-weight: 600;
-}
-
-
-/* 4. TOMBOL TOGGLE DI BAWAH */
-.toggle-section {
-    margin-top: auto; /* Dorong ke paling bawah */
-    padding: 1rem;
-    border-top: 1px solid #f0f0f0;
-    display: flex;
-    justify-content: center;
-}
-
-.btn-toggle {
-    background: none;
-    border: none;
-    color: #64748b;
-    font-size: 1.2rem;
-    cursor: pointer;
-    padding: 5px;
-    border-radius: 5px;
-    width: 100%;
-}
-
-.btn-toggle:hover {
-    background-color: #f1f5f9;
-    color: #0d6efd;
 }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\0. SOFTWARE\\5.Vscode\\Centralized_Dashboard\\CentralizedDashboard\\CentralizedDashboard.csproj": {}
+    "/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/CentralizedDashboard.csproj": {}
   },
   "projects": {
-    "D:\\0. SOFTWARE\\5.Vscode\\Centralized_Dashboard\\CentralizedDashboard\\CentralizedDashboard.csproj": {
+    "/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/CentralizedDashboard.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\0. SOFTWARE\\5.Vscode\\Centralized_Dashboard\\CentralizedDashboard\\CentralizedDashboard.csproj",
+        "projectUniqueName": "/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/CentralizedDashboard.csproj",
         "projectName": "CentralizedDashboard",
-        "projectPath": "D:\\0. SOFTWARE\\5.Vscode\\Centralized_Dashboard\\CentralizedDashboard\\CentralizedDashboard.csproj",
-        "packagesPath": "C:\\Users\\GAY5583219\\.nuget\\packages\\",
-        "outputPath": "D:\\0. SOFTWARE\\5.Vscode\\Centralized_Dashboard\\CentralizedDashboard\\obj\\",
+        "projectPath": "/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/CentralizedDashboard.csproj",
+        "packagesPath": "/Users/mac/.nuget/packages/",
+        "outputPath": "/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\GAY5583219\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/mac/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -51,7 +51,7 @@
             "Microsoft.AspNetCore.App.Internal.Assets": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[10.0.0, )",
+              "version": "[10.0.1, )",
               "autoReferenced": true
             },
             "MySql.Data": {
@@ -78,7 +78,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.101/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
