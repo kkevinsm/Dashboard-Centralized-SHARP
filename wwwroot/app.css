@@ -150,3 +150,104 @@ h1:focus {
     color: #0d6efd;
     font-weight: 600;
 }
+
+/* ========================================== */
+/* RESPONSIVE DESIGN */
+/* ========================================== */
+
+/* Layout utama untuk desktop */
+.page {
+    display: flex;
+    flex-direction: row;
+}
+
+main {
+    flex: 1;
+    min-width: 0;
+    overflow-x: auto;
+}
+
+/* Mobile (Portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    /* Sidebar selalu collapsed di mobile */
+    .nav-container {
+        width: 60px !important;
+    }
+    
+    .nav-container .link-text {
+        display: none !important;
+    }
+    
+    .nav-container .nav-link {
+        justify-content: center !important;
+        padding: 0 !important;
+    }
+    
+    .nav-container .nav-link i {
+        margin: 0 !important;
+    }
+    
+    /* Logo lebih kecil di mobile */
+    .logo-section {
+        height: 60px !important;
+    }
+    
+    /* Content padding lebih kecil */
+    .content {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    /* Tabel responsif - scroll horizontal */
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Font size lebih kecil di mobile */
+    h1 {
+        font-size: 1.5rem !important;
+    }
+    
+    .table {
+        font-size: 0.85rem;
+    }
+    
+    /* Badge lebih kecil */
+    .badge {
+        font-size: 0.7rem !important;
+    }
+}
+
+/* Tablet (Landscape phones and tablets, 576px to 991px) */
+@media (min-width: 576px) and (max-width: 991.98px) {
+    /* Sidebar collapsed by default di tablet */
+    .nav-container.expanded {
+        width: 200px;
+    }
+    
+    .content {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+    
+    h1 {
+        font-size: 1.75rem !important;
+    }
+}
+
+/* Desktop (Large devices, 992px and up) */
+@media (min-width: 992px) {
+    /* Full layout di desktop */
+    .page {
+        min-height: 100vh;
+    }
+}
+
+/* Hide toggle text on smaller screens */
+@media (max-width: 768px) {
+    .logo-section {
+        cursor: default;
+        pointer-events: none;
+    }
+}

@@ -149,7 +149,6 @@ D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/scopedcss/Components/Layout/ReconnectModal.razor.rz.scp.css
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/scopedcss/bundle/CentralizedDashboard.styles.css
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/scopedcss/projectbundle/CentralizedDashboard.bundle.scp.css
-/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/6uegklddlt-{0}-jejtq9bdt4-jejtq9bdt4.gz
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/rv4nz3wfg4-{0}-fzghodh1pd-fzghodh1pd.gz
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/i1nxzmj188-{0}-bqjiyaj88i-bqjiyaj88i.gz
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/86v9akp2ck-{0}-c2jlpeoesf-c2jlpeoesf.gz
@@ -211,3 +210,4 @@ D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/ref/CentralizedDashboard.dll
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/tagc6vob57-{0}-2tinfuy06z-2tinfuy06z.gz
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/3m24nq2v6h-{0}-2tinfuy06z-2tinfuy06z.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/6uegklddlt-{0}-noelgodd0g-noelgodd0g.gz
