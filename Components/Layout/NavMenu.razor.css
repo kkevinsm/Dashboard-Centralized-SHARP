@@ -1,120 +1,111 @@
-/* Container Utama Sidebar */
+/* 1. Container Utama Sidebar */
 .nav-container {
     height: 100vh;
     display: flex;
     flex-direction: column;
     background-color: white; /* Background Putih */
+    border-right: 1px solid #e0e0e0;
+    transition: width 0.3s ease; /* Animasi Halus */
     overflow: hidden;
-    transition: width 0.3s ease;
-    border-right: 1px solid #eee;
+    white-space: nowrap;
 }
 
-/* Ukuran Lebar Sidebar (Logic Collapse) */
+/* LEBAR SAAT TERBUKA VS TERTUTUP */
 .nav-container.expanded { width: 250px; }
-.nav-container.collapsed { width: 80px; }
+.nav-container.collapsed { width: 70px; } /* Cukup untuk icon saja */
 
-/* 1. GAYA LOGO */
+
+/* 2. LOGO */
 .logo-section {
-    height: 3.5rem;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #f0f0f0;
     margin-bottom: 1rem;
+    padding: 10px;
 }
 
-/* GAYA LOGO GAMBAR */
-.logo-section {
-    height: 4rem; /* Sedikit lebih tinggi agar logo lega */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 1px solid #eee;
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-}
-
-/* Ukuran Logo saat Sidebar TERBUKA (Besar) */
 .logo-img-large {
-    max-width: 180px; /* Maksimal lebar agar tidak tumpah */
-    max-height: 50px; /* Maksimal tinggi */
-    object-fit: contain; /* Jaga proporsi gambar */
-}
-
-/* Ukuran Logo saat Sidebar TERTUTUP (Kecil/Ikon) */
-.logo-img-small {
-    max-width: 40px;
+    max-width: 150px;
     max-height: 40px;
     object-fit: contain;
 }
 
-/* HAPUS CSS LOGO TEKS YANG LAMA (Opsional, agar rapi) */
-/*
-.logo-text { ... }
-.logo-text-small { ... }
-*/
+.logo-img-small {
+    max-width: 35px;
+    max-height: 35px;
+    object-fit: contain;
+}
 
-/* 2. GAYA TOMBOL MENU */
+
+/* 3. MENU ITEMS */
 .nav-item {
     padding: 0 10px;
 }
 
-.nav-item .nav-link {
-    color: #6c757d; /* Warna Abu-abu (saat tidak aktif) */
-    font-weight: 500;
+.nav-link {
+    color: #64748b; /* Warna Abu-abu Modern */
     border-radius: 8px;
-    margin-bottom: 5px;
     height: 45px;
     display: flex;
     align-items: center;
-    white-space: nowrap;
+    cursor: pointer;
+    text-decoration: none;
     transition: all 0.2s;
-    text-decoration: none; /* Hilangkan garis bawah */
+    margin-bottom: 5px;
 }
 
-/* Ikon */
-.nav-item .nav-link i {
-    font-size: 1.3rem;
-    min-width: 40px; /* Lebar tetap agar ikon lurus */
-    text-align: center;
+/* PENTING: Mengatur Posisi Icon */
+.nav-link i {
+    font-size: 1.25rem; /* Ukuran Icon */
+    min-width: 50px; /* Lebar area icon agar pas saat collapsed */
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Icon selalu di tengah area-nya */
 }
 
 /* Teks Menu */
 .link-text {
-    margin-left: 10px;
+    margin-left: 5px;
+    font-weight: 500;
+    font-size: 0.95rem;
 }
 
-/* Saat Hover (Mouse Lewat) */
-.nav-item .nav-link:hover {
-    background-color: #f0f4ff;
-    color: #0d6efd;
-}
-
-/* Saat Aktif (Halaman Terpilih) */
-.nav-item .nav-link.active {
-    background-color: #eef2ff;
+/* Efek Hover (Mouse Lewat) */
+.nav-link:hover {
+    background-color: #f1f5f9;
     color: #0d6efd; /* Biru */
-    font-weight: 700;
-    border-left: 4px solid #0d6efd;
 }
 
-/* 3. TOMBOL TOGGLE DI BAWAH */
+/* Efek Aktif (Halaman Terpilih) */
+.nav-link.active {
+    background-color: #eff6ff;
+    color: #0d6efd;
+    font-weight: 600;
+}
+
+
+/* 4. TOMBOL TOGGLE DI BAWAH */
 .toggle-section {
     margin-top: auto; /* Dorong ke paling bawah */
     padding: 1rem;
-    border-top: 1px solid #eee;
-    text-align: center;
+    border-top: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: center;
 }
 
 .btn-toggle {
     background: none;
     border: none;
+    color: #64748b;
     font-size: 1.2rem;
-    color: #6c757d;
     cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
     width: 100%;
-    padding: 10px;
 }
-.btn-toggle:hover { color: #0d6efd; }
+
+.btn-toggle:hover {
+    background-color: #f1f5f9;
+    color: #0d6efd;
+}

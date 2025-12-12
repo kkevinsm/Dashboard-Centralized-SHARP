@@ -2,41 +2,40 @@
 
 <div class="nav-container @(IsCollapsed ? "collapsed" : "expanded")">
     
-<div class="logo-section">
-    @if (IsCollapsed)
-    {
-         <img src="images/logo.svg" alt="WM Logo" class="logo-img-small" />
-    }
-    else
-    {
-         <img src="images/logo.svg" alt="SHARP Logo" class="logo-img-small" />
-    }
-</div>
+    <div class="logo-section">
+        @if (IsCollapsed)
+        {
+             <img src="images/logo.png" alt="WM" class="logo-img-small" />
+        }
+        else
+        {
+             <img src="images/logo.png" alt="SHARP" class="logo-img-small" />
+        }
+    </div>
 
     <nav class="flex-column">
         
-        <div class="nav-item px-3">
+        <div class="nav-item">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <i class="bi bi-house-door-fill"></i>
-                @if (!IsCollapsed) { <span class="link-text">Home</span> }
+                <i class="bi bi-house-door-fill"></i> @if (!IsCollapsed) { <span class="link-text">Home</span> }
             </NavLink>
         </div>
 
-        <div class="nav-item px-3">
+        <div class="nav-item">
             <NavLink class="nav-link" href="stop-summary">
                 <i class="bi bi-stop-circle-fill"></i>
                 @if (!IsCollapsed) { <span class="link-text">Stop Summary</span> }
             </NavLink>
         </div>
 
-        <div class="nav-item px-3">
+        <div class="nav-item">
             <NavLink class="nav-link" href="table-summary">
                 <i class="bi bi-table"></i>
                 @if (!IsCollapsed) { <span class="link-text">Table Summary</span> }
             </NavLink>
         </div>
 
-        <div class="nav-item px-3">
+        <div class="nav-item">
             <NavLink class="nav-link" href="settings">
                 <i class="bi bi-gear-fill"></i>
                 @if (!IsCollapsed) { <span class="link-text">Settings</span> }
@@ -54,10 +53,10 @@
 </div>
 
 @code {
-    // Variabel penentu apakah sidebar tertutup atau terbuka
+    // Variabel penentu status sidebar
     private bool IsCollapsed = false;
 
-    // Fungsi untuk mengubah status
+    // Fungsi yang dipanggil saat tombol ditekan
     private void ToggleSidebar()
     {
         IsCollapsed = !IsCollapsed;
