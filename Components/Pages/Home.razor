@@ -36,23 +36,19 @@
             @foreach (var mesin in mesinList)
             {
                 var data = logs.FirstOrDefault(x => x.nama_mesin_proses == mesin);
-                
-                // Cek apakah data masih fresh (diupdate dalam 5 detik terakhir)
-                var isDataFresh = false;
+                                var isDataFresh = false;
                 if (data != null)
                 {
                     var timeDifference = DateTime.Now - data.waktu;
                     isDataFresh = timeDifference.TotalSeconds <= 5;
                 }
                 
-                // Jika data tidak fresh (error sudah teratasi), reset timer ke 0
                 var timer = (data?.data_timer ?? 0);
                 if (!isDataFresh)
                 {
-                    timer = 0; // Reset timer ketika error teratasi
+                    timer = 0;
                 }
                 
-                // Mesin dianggap error HANYA jika timer > 0 DAN data fresh (update dalam 5 detik)
                 var isError = timer > 0 && isDataFresh;
                 
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
@@ -122,17 +118,16 @@
     private System.Threading.Timer? timer;
     private string currentShift = "S1";
     
-    // Daftar nama mesin tanpa prefix shift (24 item) - sesuai dengan database
     private List<string> mesinNames = new List<string>
     {
         "Auto Bellow Error",
-        "Base To Tub Stop",
+        "Base to Tub Stop",
         "Flange Screw Stop",
         "Wiring Stop",
-        "180 Turn Machine Error",
+        "Turn Machine Error",
         "Half Transfer Error",
-        "Visual Instructural Stop",
-        "Fa Stop",
+        "Visual Instructional Stop",
+        "FA Stop",
         "Feed Water Stop",
         "Inspection Room Stop",
         "Back Cover Stop",
@@ -151,7 +146,6 @@
         "Lifter Error"
     };
     
-    // Generate mesinList dengan prefix shift yang aktif
     private List<string> mesinList => mesinNames.Select(name => $"{currentShift} - {name}").ToList();
 
     protected override void OnInitialized()
@@ -162,20 +156,18 @@
         {
             LoadData();
             await InvokeAsync(StateHasChanged);
-        }, null, 0, 1000); // Update setiap 1 detik
+        }, null, 0, 1000); 
     }
 
     private void LoadData()
     {
         logs = ServiceKita.GetLatestLogs();
         
-        // Deteksi shift otomatis dari data database (ambil shift dari record pertama yang ada)
         if (logs != null && logs.Any())
         {
             var firstLog = logs.FirstOrDefault();
             if (firstLog != null && !string.IsNullOrEmpty(firstLog.nama_mesin_proses))
             {
-                // Extract shift dari nama mesin (format: "S1 - NAMA MESIN")
                 var parts = firstLog.nama_mesin_proses.Split('-');
                 if (parts.Length > 0)
                 {
@@ -188,7 +180,7 @@
             }
         }
         
-        // ATAU deteksi shift berdasarkan jam (opsional, uncomment jika ingin pakai)
+        // ATAU deteksi shift berdasarkan jam
         // currentShift = GetShiftByTime();
     }
     
@@ -199,32 +191,24 @@
         var hour = now.Hour;
         var minute = now.Minute;
         
-        // Pembagian shift perusahaan:
-        // S1: 07:56 - 17:00
-        // S2: 17:01 - 00:25
-        // S3: 00:26 - 07:55
         
-        // S1: 07:56 - 17:00
         if ((hour == 7 && minute >= 56) || (hour > 7 && hour < 17) || (hour == 17 && minute == 0))
         {
             return "S1";
         }
-        // S2: 17:01 - 00:25
         else if ((hour == 17 && minute >= 1) || (hour > 17 && hour <= 23) || (hour == 0 && minute <= 25))
         {
             return "S2";
         }
-        // S3: 00:26 - 07:55
         else
         {
             return "S3";
         }
     }
     
-    // Method untuk format timer dari detik ke jam/menit/detik
     private string FormatTimer(int seconds)
     {
-        if (seconds >= 3600) // >= 1 jam
+        if (seconds >= 3600) 
         {
             int hours = seconds / 3600;
             int minutes = (seconds % 3600) / 60;
@@ -237,7 +221,7 @@
             else
                 return $"{hours}h";
         }
-        else if (seconds >= 60) // >= 1 menit
+        else if (seconds >= 60)
         {
             int minutes = seconds / 60;
             int secs = seconds % 60;
@@ -247,7 +231,7 @@
             else
                 return $"{minutes}m";
         }
-        else // < 1 menit
+        else 
         {
             return $"{seconds}s";
         }
