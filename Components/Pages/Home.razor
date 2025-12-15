@@ -36,8 +36,24 @@
             @foreach (var mesin in mesinList)
             {
                 var data = logs.FirstOrDefault(x => x.nama_mesin_proses == mesin);
-                var timer = data?.data_timer ?? 0;
-                var isError = timer > 0;
+                
+                // Cek apakah data masih fresh (diupdate dalam 2 detik terakhir)
+                var isDataFresh = false;
+                if (data != null)
+                {
+                    var timeDifference = DateTime.Now - data.waktu;
+                    isDataFresh = timeDifference.TotalSeconds <= 2;
+                }
+                
+                // Jika data tidak fresh (error sudah teratasi), reset timer ke 0
+                var timer = (data?.data_timer ?? 0);
+                if (!isDataFresh)
+                {
+                    timer = 0; // Reset timer ketika error teratasi
+                }
+                
+                // Mesin dianggap error HANYA jika timer > 0 DAN data fresh (update dalam 2 detik)
+                var isError = timer > 0 && isDataFresh;
                 
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
                     <div class="card h-100 shadow-sm border-0 @(isError ? "border-danger border-2" : "")">
@@ -60,7 +76,7 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <small class="text-muted">Timer:</small>
                                     <span class="badge @(isError ? "bg-danger" : "bg-secondary") font-monospace">
-                                        @timer s
+                                        @FormatTimer(timer)
                                     </span>
                                 </div>
                             </div>
@@ -176,22 +192,65 @@
         // currentShift = GetShiftByTime();
     }
     
-    // Method untuk deteksi shift berdasarkan jam (opsional)
+    // Method untuk deteksi shift berdasarkan jam
     private string GetShiftByTime()
     {
-        var hour = DateTime.Now.Hour;
+        var now = DateTime.Now;
+        var hour = now.Hour;
+        var minute = now.Minute;
         
-        // Contoh pembagian shift (sesuaikan dengan aturan perusahaan):
-        // S1: 07:00 - 15:00
-        // S2: 15:00 - 23:00
-        // S3: 23:00 - 07:00
+        // Pembagian shift perusahaan:
+        // S1: 07:56 - 17:00
+        // S2: 17:01 - 00:25
+        // S3: 00:26 - 07:55
         
-        if (hour >= 7 && hour < 15)
+        // S1: 07:56 - 17:00
+        if ((hour == 7 && minute >= 56) || (hour > 7 && hour < 17) || (hour == 17 && minute == 0))
+        {
             return "S1";
-        else if (hour >= 15 && hour < 23)
+        }
+        // S2: 17:01 - 00:25
+        else if ((hour == 17 && minute >= 1) || (hour > 17 && hour <= 23) || (hour == 0 && minute <= 25))
+        {
             return "S2";
+        }
+        // S3: 00:26 - 07:55
         else
+        {
             return "S3";
+        }
+    }
+    
+    // Method untuk format timer dari detik ke jam/menit/detik
+    private string FormatTimer(int seconds)
+    {
+        if (seconds >= 3600) // >= 1 jam
+        {
+            int hours = seconds / 3600;
+            int minutes = (seconds % 3600) / 60;
+            int secs = seconds % 60;
+            
+            if (minutes > 0 && secs > 0)
+                return $"{hours}h {minutes}m {secs}s";
+            else if (minutes > 0)
+                return $"{hours}h {minutes}m";
+            else
+                return $"{hours}h";
+        }
+        else if (seconds >= 60) // >= 1 menit
+        {
+            int minutes = seconds / 60;
+            int secs = seconds % 60;
+            
+            if (secs > 0)
+                return $"{minutes}m {secs}s";
+            else
+                return $"{minutes}m";
+        }
+        else // < 1 menit
+        {
+            return $"{seconds}s";
+        }
     }
 
     public void Dispose()
