@@ -37,12 +37,12 @@
             {
                 var data = logs.FirstOrDefault(x => x.nama_mesin_proses == mesin);
                 
-                // Cek apakah data masih fresh (diupdate dalam 2 detik terakhir)
+                // Cek apakah data masih fresh (diupdate dalam 5 detik terakhir)
                 var isDataFresh = false;
                 if (data != null)
                 {
                     var timeDifference = DateTime.Now - data.waktu;
-                    isDataFresh = timeDifference.TotalSeconds <= 2;
+                    isDataFresh = timeDifference.TotalSeconds <= 5;
                 }
                 
                 // Jika data tidak fresh (error sudah teratasi), reset timer ke 0
@@ -52,7 +52,7 @@
                     timer = 0; // Reset timer ketika error teratasi
                 }
                 
-                // Mesin dianggap error HANYA jika timer > 0 DAN data fresh (update dalam 2 detik)
+                // Mesin dianggap error HANYA jika timer > 0 DAN data fresh (update dalam 5 detik)
                 var isError = timer > 0 && isDataFresh;
                 
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
