@@ -26,6 +26,9 @@
                         🕒 @DateTime.Now.ToString("HH:mm:ss")
                     </span>
                 </div>
+                <div class="badge bg-primary text-light border p-2 fs-6 d-block mb-1">
+                    @DateTime.Now.ToString("dddd", System.Globalization.CultureInfo.GetCultureInfo("id-ID"))
+                </div>
                 <div class="badge bg-primary text-light border p-2 fs-6 d-block">
                     📅 @DateTime.Now.ToString("dd/MM/yyyy")
                 </div>
