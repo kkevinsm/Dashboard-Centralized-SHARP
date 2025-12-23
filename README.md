@@ -52,16 +52,18 @@ CREATE TABLE centralized_logs (
 ### 2. Web Application
 
 Update the connection string in appsettings.json:
+```
 "ConnectionStrings": {
   "DefaultConnection": "Server=localhost;Database=centralized_logs;User=root;Password=;"
 }
-
+```
 ### 3. Run the Application
+```
 dotnet watch run
-
+```
 ### Node-RED Flow
 
-Install node-red-contrib-mcprotocol.
+Install `node-red-contrib-mcprotocol`.
 
 Configure the MC Protocol node with your PLC's IP Address and Port (Default: 5010/5012).
 
