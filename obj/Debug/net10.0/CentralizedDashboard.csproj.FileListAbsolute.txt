@@ -211,3 +211,4 @@ D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/tagc6vob57-{0}-2tinfuy06z-2tinfuy06z.gz
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/3m24nq2v6h-{0}-2tinfuy06z-2tinfuy06z.gz
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/6uegklddlt-{0}-noelgodd0g-noelgodd0g.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/rubxn6uvux-{0}-r3j3qqd6yp-r3j3qqd6yp.gz
