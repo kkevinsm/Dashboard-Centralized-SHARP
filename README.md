@@ -5,7 +5,7 @@ A high-performance Industrial IoT (IIoT) monitoring dashboard designed to captur
 ## 📌 Project Overview
 This system serves as a real-time bridge between the shop floor (PLC) and the engineering level (Web Dashboard). It automates the data acquisition process, transforming raw PLC register data into actionable insights stored in a centralized MySQL database.
 
-**Key Objective:** Monitoring the "Auto Bellow Machine" to analyze torque profiles, predict product quality, and minimize downtime through a "Stop Summary" analysis.
+**Key Objective:** To provide comprehensive monitoring for **all machines in the production line**
 
 
 
