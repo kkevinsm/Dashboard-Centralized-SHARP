@@ -1,0 +1,247 @@
+@page "/settings"
+@rendermode InteractiveServer
+@using Microsoft.AspNetCore.Components
+@using CentralizedDashboard.Services
+@inject ShiftConfigurationService ShiftService
+
+<PageTitle>Settings - Shift Configuration</PageTitle>
+
+<div class="container-fluid mt-3">
+    <div class="mb-4">
+        <h2 class="text-primary fw-bold">⚙️ Settings</h2>
+        <p class="text-muted">Configure shift times and system preferences</p>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8 col-md-10">
+            <!-- Shift Configuration Card -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">⏰ Shift Configuration</h5>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted mb-4">
+                        Set the start and end times for each shift. Times are in 24-hour format (HH:mm).
+                    </p>
+
+                    <!-- Shift 1 -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold text-primary">
+                            <i class="bi bi-1-circle-fill me-2"></i>Shift 1
+                        </label>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label small text-muted">Start Time</label>
+                                <input type="time" class="form-control" @bind="shift1Start" />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small text-muted">End Time</label>
+                                <input type="time" class="form-control" @bind="shift1End" />
+                            </div>
+                        </div>
+                        <small class="text-muted">Current: @shift1Start - @shift1End</small>
+                    </div>
+
+                    <!-- Shift 2 -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold text-primary">
+                            <i class="bi bi-2-circle-fill me-2"></i>Shift 2
+                        </label>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label small text-muted">Start Time</label>
+                                <input type="time" class="form-control" @bind="shift2Start" />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small text-muted">End Time</label>
+                                <input type="time" class="form-control" @bind="shift2End" />
+                            </div>
+                        </div>
+                        <small class="text-muted">Current: @shift2Start - @shift2End</small>
+                    </div>
+
+                    <!-- Shift 3 -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold text-primary">
+                            <i class="bi bi-3-circle-fill me-2"></i>Shift 3
+                        </label>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label small text-muted">Start Time</label>
+                                <input type="time" class="form-control" @bind="shift3Start" />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small text-muted">End Time</label>
+                                <input type="time" class="form-control" @bind="shift3End" />
+                            </div>
+                        </div>
+                        <small class="text-muted">Current: @shift3Start - @shift3End</small>
+                    </div>
+
+                    <hr class="my-4" />
+
+                    <!-- Save Buttons -->
+                    <div class="d-flex gap-3">
+                        <button class="btn btn-primary" @onclick="SaveSettings">
+                            <i class="bi bi-check-circle me-2"></i>Save Changes
+                        </button>
+                        <button class="btn btn-outline-secondary" @onclick="ResetToDefault">
+                            <i class="bi bi-arrow-counterclockwise me-2"></i>Reset to Default
+                        </button>
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(saveMessage))
+                    {
+                        <div class="alert @(saveSuccess ? "alert-success" : "alert-danger") mt-3 mb-0">
+                            <i class="bi @(saveSuccess ? "bi-check-circle-fill" : "bi-exclamation-triangle-fill") me-2"></i>
+                            @saveMessage
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <!-- Info Card -->
+            <div class="card shadow-sm border-info">
+                <div class="card-body">
+                    <h6 class="text-info">
+                        <i class="bi bi-info-circle-fill me-2"></i>Information
+                    </h6>
+                    <ul class="mb-0 small">
+                        <li>Shift times are saved in the database</li>
+                        <li>The system will automatically detect the current shift based on these times</li>
+                        <li>Make sure there are no time gaps between shifts</li>
+                        <li>Default times: S1 (07:56-17:00), S2 (17:01-00:25), S3 (00:26-07:55)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private TimeOnly shift1Start = new TimeOnly(7, 56);
+    private TimeOnly shift1End = new TimeOnly(17, 0);
+    private TimeOnly shift2Start = new TimeOnly(17, 1);
+    private TimeOnly shift2End = new TimeOnly(0, 25);
+    private TimeOnly shift3Start = new TimeOnly(0, 26);
+    private TimeOnly shift3End = new TimeOnly(7, 55);
+
+    private string saveMessage = "";
+    private bool saveSuccess = false;
+    private bool isLoading = true;
+
+    protected override void OnInitialized()
+    {
+        LoadSettings();
+    }
+
+    private void LoadSettings()
+    {
+        try
+        {
+            isLoading = true;
+            
+            // Initialize default shifts if table is empty
+            ShiftService.InitializeDefaultShifts();
+            
+            // Load from database
+            var shifts = ShiftService.GetAllShifts();
+            
+            if (shifts.Count >= 3)
+            {
+                var shift1 = shifts.FirstOrDefault(s => s.ShiftName == "Shift 1");
+                var shift2 = shifts.FirstOrDefault(s => s.ShiftName == "Shift 2");
+                var shift3 = shifts.FirstOrDefault(s => s.ShiftName == "Shift 3");
+
+                if (shift1 != null)
+                {
+                    shift1Start = shift1.StartTime;
+                    shift1End = shift1.EndTime;
+                }
+                if (shift2 != null)
+                {
+                    shift2Start = shift2.StartTime;
+                    shift2End = shift2.EndTime;
+                }
+                if (shift3 != null)
+                {
+                    shift3Start = shift3.StartTime;
+                    shift3End = shift3.EndTime;
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            saveMessage = $"Error loading settings: {ex.Message}";
+            saveSuccess = false;
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    private void SaveSettings()
+    {
+        try
+        {
+            // Save Shift 1
+            ShiftService.SaveShiftConfiguration(new Models.ShiftConfiguration
+            {
+                ShiftName = "Shift 1",
+                StartTime = shift1Start,
+                EndTime = shift1End
+            });
+
+            // Save Shift 2
+            ShiftService.SaveShiftConfiguration(new Models.ShiftConfiguration
+            {
+                ShiftName = "Shift 2",
+                StartTime = shift2Start,
+                EndTime = shift2End
+            });
+
+            // Save Shift 3
+            ShiftService.SaveShiftConfiguration(new Models.ShiftConfiguration
+            {
+                ShiftName = "Shift 3",
+                StartTime = shift3Start,
+                EndTime = shift3End
+            });
+            
+            saveMessage = "✓ Shift configuration saved successfully to database!";
+            saveSuccess = true;
+
+            // Auto clear message after 3 seconds
+            Task.Delay(3000).ContinueWith(_ => 
+            {
+                saveMessage = "";
+                InvokeAsync(StateHasChanged);
+            });
+        }
+        catch (Exception ex)
+        {
+            saveMessage = $"Error saving settings: {ex.Message}";
+            saveSuccess = false;
+        }
+    }
+
+    private void ResetToDefault()
+    {
+        shift1Start = new TimeOnly(7, 56);
+        shift1End = new TimeOnly(17, 0);
+        shift2Start = new TimeOnly(17, 1);
+        shift2End = new TimeOnly(0, 25);
+        shift3Start = new TimeOnly(0, 26);
+        shift3End = new TimeOnly(7, 55);
+
+        saveMessage = "Settings reset to default values. Click 'Save Changes' to apply.";
+        saveSuccess = true;
+
+        Task.Delay(3000).ContinueWith(_ => 
+        {
+            saveMessage = "";
+            InvokeAsync(StateHasChanged);
+        });
+    }
+}

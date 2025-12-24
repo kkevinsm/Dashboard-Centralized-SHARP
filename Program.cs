@@ -3,6 +3,7 @@ using CentralizedDashboard.Components;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<CentralizedDashboard.Services.MesinService>();
+builder.Services.AddScoped<CentralizedDashboard.Services.ShiftConfigurationService>();
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
