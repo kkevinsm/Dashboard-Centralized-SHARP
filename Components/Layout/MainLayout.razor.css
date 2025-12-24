@@ -42,12 +42,12 @@ main {
         color: #0d6efd;
     }
 
-/* Area Artikel (Tempat Tabel Dashboard muncul) */
+/* Area Artikel */
 article.content {
     padding: 1.5rem !important;
 }
 
-/* Styling Error UI Bawaan Blazor */
+/* Styling Error UI Blazor */
 #blazor-error-ui {
     color-scheme: light only;
     background: lightyellow;
@@ -69,7 +69,7 @@ article.content {
         top: 0.5rem;
     }
 
-/* Responsif untuk Layar HP (Opsional: Sembunyikan sidebar di HP jika mau) */
+/* Responsif untuk Layar HP */
 @media (max-width: 640.98px) {
     .page {
         flex-direction: column;

@@ -115,7 +115,7 @@ h1:focus {
     font-size: 1.4rem;
 }
 
-/* EXPANDED: Ikon kiri + Teks samping */
+/* EXPANDED */
 .nav-container.expanded .nav-link {
     justify-content: flex-start;
     padding-left: 20px;
@@ -127,7 +127,7 @@ h1:focus {
     text-align: center;
 }
 
-/* COLLAPSED: Ikon di tengah */
+/* COLLAPSED */
 .nav-container.collapsed .nav-link {
     justify-content: center;
     padding: 0;
@@ -151,9 +151,7 @@ h1:focus {
     font-weight: 600;
 }
 
-/* ========================================== */
-/* RESPONSIVE DESIGN */
-/* ========================================== */
+
 
 /* Layout utama untuk desktop */
 .page {

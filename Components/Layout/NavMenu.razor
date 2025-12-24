@@ -1,15 +1,15 @@
-﻿@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Routing
 
 <div class="nav-container @(IsCollapsed ? "collapsed" : "expanded")">
     
     <div class="logo-section" @onclick="ToggleSidebar" title="Klik untuk Buka/Tutup">
         @if (IsCollapsed)
         {
-             <img src="images/logo.svg" alt="WM" class="logo-img-small" />
+             <img src="images/logo.png" alt="WM" class="logo-img-small" />
         }
         else
         {
-             <img src="images/logo.svg" alt="SHARP" class="logo-img-large" />
+             <img src="images/logo.png" alt="SHARP" class="logo-img-large" />
         }
     </div>
 
@@ -17,28 +17,21 @@
         
         <div class="nav-item">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All" title="Home">
-                <i class="bi bi-house-door-fill"></i>
+                <img src="images/side-icon/home.png" alt="Home" style="width: 24px; height: 24px;" />
                 @if (!IsCollapsed) { <span class="link-text">Home</span> }
             </NavLink>
         </div>
 
         <div class="nav-item">
-            <NavLink class="nav-link" href="stop-summary" title="Stop Summary">
-                <i class="bi bi-stop-circle-fill"></i>
-                @if (!IsCollapsed) { <span class="link-text">Stop Summary</span> }
-            </NavLink>
-        </div>
-
-        <div class="nav-item">
-            <NavLink class="nav-link" href="table-summary" title="Table Summary">
-                <i class="bi bi-table"></i>
-                @if (!IsCollapsed) { <span class="link-text">Table Summary</span> }
+            <NavLink class="nav-link" href="summary" title="Summary">
+                <img src="images/side-icon/table.png" alt="Summary" style="width: 24px; height: 24px;" />
+                @if (!IsCollapsed) { <span class="link-text">Summary</span> }
             </NavLink>
         </div>
 
         <div class="nav-item">
             <NavLink class="nav-link" href="settings" title="Settings">
-                <i class="bi bi-gear-fill"></i>
+                <img src="images/side-icon/settings.png" alt="Settings" style="width: 24px; height: 24px;" />
                 @if (!IsCollapsed) { <span class="link-text">Settings</span> }
             </NavLink>
         </div>
