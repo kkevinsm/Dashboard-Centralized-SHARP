@@ -170,3 +170,54 @@
         padding: 0.4rem !important;
     }
 }
+
+/* Logo SHARP Responsive Styles */
+.sharp-logo {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    padding-left: 0;
+    z-index: 100;
+}
+
+.sharp-logo img {
+    width: 220px;
+    height: auto;
+}
+
+/* Tablet (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .sharp-logo img {
+        width: 180px;
+    }
+}
+
+/* Mobile Large (576px - 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+    .sharp-logo {
+        bottom: 10px;
+    }
+    
+    .sharp-logo img {
+        width: 150px;
+    }
+}
+
+/* Mobile Small (<576px) */
+@media (max-width: 575px) {
+    .sharp-logo {
+        bottom: 10px;
+        padding-left: 0.25rem !important;
+    }
+    
+    .sharp-logo img {
+        width: 120px;
+    }
+}
+
+/* Mobile Extra Small (<400px) */
+@media (max-width: 399px) {
+    .sharp-logo img {
+        width: 100px;
+    }
+}
