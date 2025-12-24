@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/CentralizedDashboard.csproj": {}
+    "D:\\Codes\\Dashboard-Centralized-SHARP\\CentralizedDashboard.csproj": {}
   },
   "projects": {
-    "/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/CentralizedDashboard.csproj": {
+    "D:\\Codes\\Dashboard-Centralized-SHARP\\CentralizedDashboard.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/CentralizedDashboard.csproj",
+        "projectUniqueName": "D:\\Codes\\Dashboard-Centralized-SHARP\\CentralizedDashboard.csproj",
         "projectName": "CentralizedDashboard",
-        "projectPath": "/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/CentralizedDashboard.csproj",
-        "packagesPath": "/Users/mac/.nuget/packages/",
-        "outputPath": "/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/",
+        "projectPath": "D:\\Codes\\Dashboard-Centralized-SHARP\\CentralizedDashboard.csproj",
+        "packagesPath": "C:\\Users\\Reynal\\.nuget\\packages\\",
+        "outputPath": "D:\\Codes\\Dashboard-Centralized-SHARP\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/mac/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Reynal\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -78,7 +78,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.101/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
