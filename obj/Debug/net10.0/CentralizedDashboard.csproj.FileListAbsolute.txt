@@ -1,0 +1,216 @@
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/bin/Debug/net10.0/appsettings.Development.json
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/bin/Debug/net10.0/appsettings.json
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/bin/Debug/net10.0/CentralizedDashboard.staticwebassets.runtime.json
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/bin/Debug/net10.0/CentralizedDashboard.staticwebassets.endpoints.json
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/bin/Debug/net10.0/CentralizedDashboard.exe
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/bin/Debug/net10.0/CentralizedDashboard.deps.json
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/bin/Debug/net10.0/CentralizedDashboard.runtimeconfig.json
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/bin/Debug/net10.0/CentralizedDashboard.dll
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/bin/Debug/net10.0/CentralizedDashboard.pdb
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/bin/Debug/net10.0/BouncyCastle.Cryptography.dll
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/bin/Debug/net10.0/Google.Protobuf.dll
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/bin/Debug/net10.0/K4os.Compression.LZ4.dll
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/bin/Debug/net10.0/K4os.Compression.LZ4.Streams.dll
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/bin/Debug/net10.0/K4os.Hash.xxHash.dll
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/bin/Debug/net10.0/MySql.Data.dll
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/bin/Debug/net10.0/System.Configuration.ConfigurationManager.dll
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/bin/Debug/net10.0/System.Security.Cryptography.ProtectedData.dll
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/bin/Debug/net10.0/System.Security.Permissions.dll
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/bin/Debug/net10.0/System.Windows.Extensions.dll
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/bin/Debug/net10.0/ZstdSharp.dll
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/bin/Debug/net10.0/runtimes/win-x64/native/comerr64.dll
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/bin/Debug/net10.0/runtimes/win-x64/native/gssapi64.dll
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/bin/Debug/net10.0/runtimes/win-x64/native/k5sprt64.dll
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/bin/Debug/net10.0/runtimes/win-x64/native/krb5_64.dll
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/bin/Debug/net10.0/runtimes/win-x64/native/krbcc64.dll
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/bin/Debug/net10.0/runtimes/win/lib/net8.0/System.Windows.Extensions.dll
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/EmbeddedAttribute.cs
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/ValidatableTypeAttribute.cs
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/CentralizedDashboard.csproj.AssemblyReference.cache
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/rpswa.dswa.cache.json
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/CentralizedDashboard.GeneratedMSBuildEditorConfig.editorconfig
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/CentralizedDashboard.AssemblyInfoInputs.cache
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/CentralizedDashboard.AssemblyInfo.cs
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/CentralizedDashboard.csproj.CoreCompileInputs.cache
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/CentralizedDashboard.MvcApplicationPartsAssemblyInfo.cache
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/rjimswa.dswa.cache.json
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/rjsmrazor.dswa.cache.json
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/scopedcss/Components/Layout/MainLayout.razor.rz.scp.css
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/scopedcss/Components/Layout/NavMenu.razor.rz.scp.css
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/scopedcss/Components/Layout/ReconnectModal.razor.rz.scp.css
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/scopedcss/bundle/CentralizedDashboard.styles.css
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/scopedcss/projectbundle/CentralizedDashboard.bundle.scp.css
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/6uegklddlt-{0}-khy4lop6wu-khy4lop6wu.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/i1nxzmj188-{0}-bqjiyaj88i-bqjiyaj88i.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/86v9akp2ck-{0}-c2jlpeoesf-c2jlpeoesf.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/3t4z3nocth-{0}-erw9l3u2r3-erw9l3u2r3.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/bek5a0if8a-{0}-aexeepp0ev-aexeepp0ev.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/640uujz356-{0}-d7shbmvgxk-d7shbmvgxk.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/twata7rt6b-{0}-ausgxo2sd3-ausgxo2sd3.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/3trerb7p6i-{0}-k8d9w2qqmf-k8d9w2qqmf.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/elhbxdngo0-{0}-cosvhxvwiu-cosvhxvwiu.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/jhdxb4lqv6-{0}-ub07r2b239-ub07r2b239.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/tlfe38wu9s-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/6bt3selxvp-{0}-b7pk76d08c-b7pk76d08c.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/nbtqcbkg4m-{0}-fsbi9cje9m-fsbi9cje9m.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/bisfonyn4r-{0}-rzd6atqjts-rzd6atqjts.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/p37bwvshda-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/21dvqw7tku-{0}-dxx9fxp4il-dxx9fxp4il.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/9xkdpxexwp-{0}-jd9uben2k1-jd9uben2k1.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/zlyhrrxlxh-{0}-khv3u5hwcm-khv3u5hwcm.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/dsg2xfakv4-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/rfu95a5cwc-{0}-lcd1t2u6c8-lcd1t2u6c8.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/rf8tywm4ji-{0}-c2oey78nd0-c2oey78nd0.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/j90asauwa9-{0}-tdbxkamptv-tdbxkamptv.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/31ktiycz65-{0}-j5mq2jizvt-j5mq2jizvt.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/uxqn04nf39-{0}-06098lyss8-06098lyss8.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/palv2a2uno-{0}-nvvlpmu67g-nvvlpmu67g.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/rprc35e4bk-{0}-s35ty4nyc5-s35ty4nyc5.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/zws64gmkhv-{0}-pj5nd1wqec-pj5nd1wqec.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/ilio8plrn2-{0}-46ein0sx1k-46ein0sx1k.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/5o5oer1wqv-{0}-v0zj4ognzu-v0zj4ognzu.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/l4pkd331gz-{0}-37tfw0ft22-37tfw0ft22.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/jxih4x6kck-{0}-hrwsygsryq-hrwsygsryq.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/vywdnvnzlt-{0}-pk9g2wxc8p-pk9g2wxc8p.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/nzgtvai67a-{0}-ft3s53vfgj-ft3s53vfgj.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/2648vqn1ob-{0}-6cfz1n2cew-6cfz1n2cew.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/uk48vmlwbp-{0}-6pdc2jztkx-6pdc2jztkx.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/u6z7628qml-{0}-493y06b0oq-493y06b0oq.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/iazvejh4tt-{0}-iovd86k7lj-iovd86k7lj.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/c0usddtg59-{0}-vr1egmr9el-vr1egmr9el.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/2vnamw936n-{0}-kbrnm935zg-kbrnm935zg.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/g7ljnl7bku-{0}-jj8uyg4cgr-jj8uyg4cgr.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/vgzjxo2auu-{0}-y7v9cxd14o-y7v9cxd14o.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/hm7bjel2zu-{0}-notf2xhcfb-notf2xhcfb.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/bc2pqagnav-{0}-h1s4sie4z3-h1s4sie4z3.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/1d3ffpc40m-{0}-63fj8s7r0e-63fj8s7r0e.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/itreyzoqqd-{0}-0j3bgjxly4-0j3bgjxly4.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/dpe2gwwrye-{0}-13ja33weya-13ja33weya.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/zo6d5gtz03-{0}-j8lzlu28q6-j8lzlu28q6.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/7i5e3nq74s-{0}-u1n4jc5v46-u1n4jc5v46.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/tagc6vob57-{0}-mc15btgc7y-mc15btgc7y.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/compressed/3m24nq2v6h-{0}-mc15btgc7y-mc15btgc7y.gz
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/staticwebassets.build.json
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/staticwebassets.build.json.cache
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/staticwebassets.development.json
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/staticwebassets.build.endpoints.json
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/swae.build.ex.cache
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/Centrali.29AA53A5.Up2Date
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/CentralizedDashboard.dll
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/refint/CentralizedDashboard.dll
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/CentralizedDashboard.pdb
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/CentralizedDashboard.genruntimeconfig.cache
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/ref/CentralizedDashboard.dll
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/bin/Debug/net10.0/Dapper.dll
+D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/CentralizedDashboard/obj/Debug/net10.0/CentralizedDashboard.sourcelink.json
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/bin/Debug/net10.0/appsettings.Development.json
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/bin/Debug/net10.0/appsettings.json
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/bin/Debug/net10.0/CentralizedDashboard.staticwebassets.runtime.json
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/bin/Debug/net10.0/CentralizedDashboard.staticwebassets.endpoints.json
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/bin/Debug/net10.0/CentralizedDashboard
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/bin/Debug/net10.0/CentralizedDashboard.deps.json
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/bin/Debug/net10.0/CentralizedDashboard.runtimeconfig.json
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/bin/Debug/net10.0/CentralizedDashboard.dll
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/bin/Debug/net10.0/CentralizedDashboard.pdb
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/bin/Debug/net10.0/BouncyCastle.Cryptography.dll
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/bin/Debug/net10.0/Dapper.dll
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/bin/Debug/net10.0/Google.Protobuf.dll
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/bin/Debug/net10.0/K4os.Compression.LZ4.dll
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/bin/Debug/net10.0/K4os.Compression.LZ4.Streams.dll
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/bin/Debug/net10.0/K4os.Hash.xxHash.dll
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/bin/Debug/net10.0/MySql.Data.dll
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/bin/Debug/net10.0/System.Configuration.ConfigurationManager.dll
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/bin/Debug/net10.0/System.Security.Cryptography.ProtectedData.dll
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/bin/Debug/net10.0/System.Security.Permissions.dll
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/bin/Debug/net10.0/System.Windows.Extensions.dll
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/bin/Debug/net10.0/ZstdSharp.dll
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/bin/Debug/net10.0/runtimes/win-x64/native/comerr64.dll
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/bin/Debug/net10.0/runtimes/win-x64/native/gssapi64.dll
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/bin/Debug/net10.0/runtimes/win-x64/native/k5sprt64.dll
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/bin/Debug/net10.0/runtimes/win-x64/native/krb5_64.dll
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/bin/Debug/net10.0/runtimes/win-x64/native/krbcc64.dll
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/bin/Debug/net10.0/runtimes/win/lib/net8.0/System.Windows.Extensions.dll
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/EmbeddedAttribute.cs
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/ValidatableTypeAttribute.cs
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/CentralizedDashboard.csproj.AssemblyReference.cache
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/rpswa.dswa.cache.json
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/CentralizedDashboard.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/CentralizedDashboard.AssemblyInfoInputs.cache
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/CentralizedDashboard.AssemblyInfo.cs
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/CentralizedDashboard.csproj.CoreCompileInputs.cache
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/CentralizedDashboard.MvcApplicationPartsAssemblyInfo.cache
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/CentralizedDashboard.sourcelink.json
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/rjimswa.dswa.cache.json
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/rjsmrazor.dswa.cache.json
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/scopedcss/Components/Layout/MainLayout.razor.rz.scp.css
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/scopedcss/Components/Layout/NavMenu.razor.rz.scp.css
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/scopedcss/Components/Layout/ReconnectModal.razor.rz.scp.css
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/scopedcss/bundle/CentralizedDashboard.styles.css
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/scopedcss/projectbundle/CentralizedDashboard.bundle.scp.css
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/rv4nz3wfg4-{0}-fzghodh1pd-fzghodh1pd.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/i1nxzmj188-{0}-bqjiyaj88i-bqjiyaj88i.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/86v9akp2ck-{0}-c2jlpeoesf-c2jlpeoesf.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/3t4z3nocth-{0}-erw9l3u2r3-erw9l3u2r3.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/bek5a0if8a-{0}-aexeepp0ev-aexeepp0ev.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/640uujz356-{0}-d7shbmvgxk-d7shbmvgxk.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/twata7rt6b-{0}-ausgxo2sd3-ausgxo2sd3.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/3trerb7p6i-{0}-k8d9w2qqmf-k8d9w2qqmf.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/elhbxdngo0-{0}-cosvhxvwiu-cosvhxvwiu.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/jhdxb4lqv6-{0}-ub07r2b239-ub07r2b239.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/tlfe38wu9s-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/6bt3selxvp-{0}-b7pk76d08c-b7pk76d08c.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/nbtqcbkg4m-{0}-fsbi9cje9m-fsbi9cje9m.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/bisfonyn4r-{0}-rzd6atqjts-rzd6atqjts.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/p37bwvshda-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/21dvqw7tku-{0}-dxx9fxp4il-dxx9fxp4il.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/9xkdpxexwp-{0}-jd9uben2k1-jd9uben2k1.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/zlyhrrxlxh-{0}-khv3u5hwcm-khv3u5hwcm.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/dsg2xfakv4-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/rfu95a5cwc-{0}-lcd1t2u6c8-lcd1t2u6c8.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/rf8tywm4ji-{0}-c2oey78nd0-c2oey78nd0.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/j90asauwa9-{0}-tdbxkamptv-tdbxkamptv.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/31ktiycz65-{0}-j5mq2jizvt-j5mq2jizvt.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/uxqn04nf39-{0}-06098lyss8-06098lyss8.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/palv2a2uno-{0}-nvvlpmu67g-nvvlpmu67g.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/rprc35e4bk-{0}-s35ty4nyc5-s35ty4nyc5.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/zws64gmkhv-{0}-pj5nd1wqec-pj5nd1wqec.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/ilio8plrn2-{0}-46ein0sx1k-46ein0sx1k.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/5o5oer1wqv-{0}-v0zj4ognzu-v0zj4ognzu.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/l4pkd331gz-{0}-37tfw0ft22-37tfw0ft22.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/jxih4x6kck-{0}-hrwsygsryq-hrwsygsryq.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/vywdnvnzlt-{0}-pk9g2wxc8p-pk9g2wxc8p.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/nzgtvai67a-{0}-ft3s53vfgj-ft3s53vfgj.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/2648vqn1ob-{0}-6cfz1n2cew-6cfz1n2cew.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/uk48vmlwbp-{0}-6pdc2jztkx-6pdc2jztkx.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/u6z7628qml-{0}-493y06b0oq-493y06b0oq.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/iazvejh4tt-{0}-iovd86k7lj-iovd86k7lj.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/c0usddtg59-{0}-vr1egmr9el-vr1egmr9el.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/2vnamw936n-{0}-kbrnm935zg-kbrnm935zg.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/g7ljnl7bku-{0}-jj8uyg4cgr-jj8uyg4cgr.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/vgzjxo2auu-{0}-y7v9cxd14o-y7v9cxd14o.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/hm7bjel2zu-{0}-notf2xhcfb-notf2xhcfb.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/bc2pqagnav-{0}-h1s4sie4z3-h1s4sie4z3.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/1d3ffpc40m-{0}-63fj8s7r0e-63fj8s7r0e.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/itreyzoqqd-{0}-0j3bgjxly4-0j3bgjxly4.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/dpe2gwwrye-{0}-w97mql0d9w-w97mql0d9w.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/zo6d5gtz03-{0}-wmp8iwak4q-wmp8iwak4q.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/7i5e3nq74s-{0}-2lgipwaf5j-2lgipwaf5j.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/staticwebassets.build.json
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/staticwebassets.build.json.cache
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/staticwebassets.development.json
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/staticwebassets.build.endpoints.json
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/swae.build.ex.cache
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/Centrali.29AA53A5.Up2Date
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/CentralizedDashboard.dll
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/refint/CentralizedDashboard.dll
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/CentralizedDashboard.pdb
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/CentralizedDashboard.genruntimeconfig.cache
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/ref/CentralizedDashboard.dll
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/dt0ewfbde8-{0}-jbctspxnmn-jbctspxnmn.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/rubxn6uvux-{0}-put090be3r-put090be3r.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/6uegklddlt-{0}-oicxvkcyuc-oicxvkcyuc.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/tagc6vob57-{0}-1e68gfvj51-1e68gfvj51.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/3m24nq2v6h-{0}-1e68gfvj51-1e68gfvj51.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/o5ixdmx0yl-{0}-00dsq2x91n-00dsq2x91n.gz
