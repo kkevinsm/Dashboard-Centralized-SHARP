@@ -1,0 +1,233 @@
+@page "/table"
+@rendermode InteractiveServer
+@using CentralizedDashboard.Models
+@using CentralizedDashboard.Services
+@inject MesinService ServiceKita
+
+<style>
+    /* Sesuaikan di sini */
+    .table-minimal th {
+        font-size: 22px;       /* ukuran header (DATE / SHIFT) */
+        font-weight: 700;
+        letter-spacing: 0.6px;
+        padding: 20px 12px;    /* vertical / horizontal padding */
+        color: #000;
+    }
+    .table-minimal td {
+        font-size: 20px;       /* ukuran isi tabel (angka "Mins") */
+        font-weight: 400;      /* pastikan tidak bold */
+        padding: 18px 12px;
+        vertical-align: middle;
+    }
+    /* Posisi kolom DATE agar sejajar dengan label modal */
+    .table-minimal td:first-child,
+    .table-minimal th:first-child {
+        text-align: left;
+        padding-left: 28px;    /* sesuaikan offset kiri untuk alignment */
+        vertical-align: middle;
+    }
+    .table-minimal .btn-sm {
+        font-size: 15px;
+        padding: 8px 12px;
+        font-weight: 800;
+        border-radius: 10px;
+    }
+    @@media (max-width: 576px) {
+        .table-minimal th { font-size: 18px; }
+        .table-minimal td { font-size: 16px; padding: 12px 8px; }
+    }
+</style>
+
+<div class="container-fluid mt-3">
+    <div class="mb-3">
+        <h1 class="text-primary fw-bold" style="font-size: 2.5rem;">TABLE SUMMARY</h1>
+         <p class="text-muted mb-0" style="font-size: 1.5rem;">CENTRALIZE MONITORING SYSTEM</p>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-minimal mb-0 align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th scope="col">DATE</th>
+                            <th scope="col">SHIFT 1</th>
+                            <th scope="col">SHIFT 2</th>
+                            <th scope="col">SHIFT 3</th>
+                            <th scope="col" class="text-center">MACHINE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in tableData)
+                        {
+                            <tr>
+                                <td class="text-dark">@item.Date</td>
+                                <td class="text-primary">@item.Shift1</td>
+                                <td class="text-primary">@item.Shift2</td>
+                                <td class="text-primary">@item.Shift3</td>
+                                <td class="text-center">
+                                    <button class="btn btn-outline-primary btn-sm" @onclick="() => ShowDetail(item)">DETAIL</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (showDetailModal)
+{
+    <div class="modal fade show d-block" style="background: rgba(0,0,0,0.4);">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Detail Informasi</h5>
+                    <button type="button" class="btn-close" aria-label="close" @onclick="CloseDetail"></button>
+                </div>
+                <div class="modal-body">
+                    @if (selectedItem != null)
+                    {
+                        <p><strong>Tanggal:</strong> @selectedItem.Date</p>
+                        <p><strong>Shift 1:</strong> @selectedItem.Shift1</p>
+                        <p><strong>Shift 2:</strong> @selectedItem.Shift2</p>
+                        <p><strong>Shift 3:</strong> @selectedItem.Shift3</p>
+                    }
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary btn-sm" @onclick="CloseDetail">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<!-- Logo SHARP di pojok kanan bawah -->
+<div style="margin-top: 32px; margin-bottom: 16px; pointer-events: none;">
+    <img src="images/sharp-pe-logo.svg" alt="SHARP Logo" style="width:220px; height:auto; pointer-events: auto;" />
+</div>
+
+@code {
+    private List<TableData> tableData = new();
+    private List<ErrorLog>? logs = null;
+    private bool showDetailModal = false;
+    private TableData? selectedItem = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Load data dari database
+        logs = ServiceKita.GetLatestLogs();
+        
+        // Generate 7 hari ke belakang
+        GenerateLast7Days();
+    }
+
+    private void GenerateLast7Days()
+    {
+        tableData = new List<TableData>();
+        
+        // Ambil 7 hari terakhir (dari hari ini hingga 6 hari ke belakang)
+        for (int i = 0; i <= 6; i++)
+        {
+            DateTime date = DateTime.Now.AddDays(-i);
+            string dateStr = date.ToString("dddd dd/MM/yyyy", System.Globalization.CultureInfo.GetCultureInfo("id-ID"));
+            
+            // Hitung akumulasi per shift
+            var shift1Total = GetShiftAccumulation(date, 1);
+            var shift2Total = GetShiftAccumulation(date, 2);
+            var shift3Total = GetShiftAccumulation(date, 3);
+            
+            tableData.Add(new TableData 
+            { 
+                Date = dateStr.ToUpper(),
+                Shift1 = FormatTimer(shift1Total),
+                Shift2 = FormatTimer(shift2Total),
+                Shift3 = FormatTimer(shift3Total)
+            });
+        }
+    }
+
+    private int GetShiftAccumulation(DateTime date, int shift)
+    {
+        if (logs == null) return 0;
+        
+        // Tentukan jam awal dan akhir untuk setiap shift
+        DateTime shiftStart, shiftEnd;
+        switch (shift)
+        {
+            case 1: // 06:00 - 14:00
+                shiftStart = date.AddHours(6);
+                shiftEnd = date.AddHours(14);
+                break;
+            case 2: // 14:00 - 22:00
+                shiftStart = date.AddHours(14);
+                shiftEnd = date.AddHours(22);
+                break;
+            case 3: // 22:00 - 06:00 (next day)
+                shiftStart = date.AddHours(22);
+                shiftEnd = date.AddDays(1).AddHours(6);
+                break;
+            default:
+                return 0;
+        }
+        
+        // Akumulasi semua timer data dalam range shift tersebut
+        var totalSeconds = logs
+            .Where(log => log.waktu >= shiftStart && log.waktu < shiftEnd)
+            .Sum(log => log.data_timer);
+        
+        return totalSeconds;
+    }
+
+    private string FormatTimer(int seconds)
+    {
+        if (seconds >= 3600) 
+        {
+            int hours = seconds / 3600;
+            int minutes = (seconds % 3600) / 60;
+            int secs = seconds % 60;
+            
+            if (minutes > 0 && secs > 0)
+                return $"{hours}h {minutes}m {secs}s";
+            else if (minutes > 0)
+                return $"{hours}h {minutes}m";
+            else
+                return $"{hours}h";
+        }
+        else if (seconds >= 60)
+        {
+            int minutes = seconds / 60;
+            int secs = seconds % 60;
+            
+            if (secs > 0)
+                return $"{minutes}m {secs}s";
+            else
+                return $"{minutes}m";
+        }
+        else 
+        {
+            return $"{seconds}s";
+        }
+    }
+                
+    private void ShowDetail(TableData item)
+    {
+        selectedItem = item;
+        showDetailModal = true;
+    }
+
+    private void CloseDetail()
+    {
+        showDetailModal = false;
+        selectedItem = null;
+    }
+
+    public class TableData
+    {
+        public string Date { get; set; } = "";
+        public string Shift1 { get; set; } = "";
+        public string Shift2 { get; set; } = "";
+        public string Shift3 { get; set; } = "";
+    }
+}

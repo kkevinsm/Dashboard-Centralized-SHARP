@@ -20,3 +20,4 @@ ON DUPLICATE KEY UPDATE
     start_time = VALUES(start_time),
     end_time = VALUES(end_time),
     updated_at = NOW();
+-- End of script
