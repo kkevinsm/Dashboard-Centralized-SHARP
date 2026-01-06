@@ -40,11 +40,29 @@
     
 </div>
 
+@inject IJSRuntime JSRuntime
+
 @code {
     private bool IsCollapsed = true;
 
-    private void ToggleSidebar()
+    private async Task ToggleSidebar()
     {
         IsCollapsed = !IsCollapsed;
+        
+        // Toggle class on dashboard carousel and navigation buttons
+        if (IsCollapsed)
+        {
+            await JSRuntime.InvokeVoidAsync("eval", @"
+                document.querySelector('.dashboard-carousel')?.classList.remove('sidebar-expanded');
+                document.querySelector('.carousel-nav.prev')?.classList.remove('sidebar-expanded');
+            ");
+        }
+        else
+        {
+            await JSRuntime.InvokeVoidAsync("eval", @"
+                document.querySelector('.dashboard-carousel')?.classList.add('sidebar-expanded');
+                document.querySelector('.carousel-nav.prev')?.classList.add('sidebar-expanded');
+            ");
+        }
     }
 }
