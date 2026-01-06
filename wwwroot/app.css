@@ -249,3 +249,29 @@ main {
         pointer-events: none;
     }
 }
+
+/* Minimal table style used by Table.razor */
+.table-minimal {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+.table-minimal thead th {
+    background: transparent;
+    border-bottom: 2px solid #e6eefc;
+    color: #0d3f8a;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+.table-minimal tbody tr {
+    border-bottom: 1px solid #eef3fb;
+}
+.table-minimal tbody td {
+    border: none !important;
+    padding: 14px 18px;
+    vertical-align: middle;
+}
+.table-minimal .text-primary {
+    color: #0d6efd !important;
+    font-weight: 400;
+}
