@@ -148,30 +148,41 @@
         <div class="carousel-page">
             <!-- Production Line Container - Full Page -->
                 <div class="production-line-container">
-                    <!-- Header Overlay -->
-                    <div class="production-header-overlay">
-                        <div class="production-header-left">
-                            <h2 class="production-title">CENTRALIZED</h2>
-                            <h2 class="production-title">MONITORING SYSTEM</h2>
-                            <p class="production-subtitle">WASHING MACHINE DIVISION</p>
+                    
+                    <!-- Header Left Top -->
+                    <div class="production-header-left-top">
+                        <h1 class="production-main-title">CENTRALIZED</h1>
+                        <h1 class="production-main-title">MONITORING SYSTEM</h1>
+                        <p class="production-main-subtitle">WASHING MACHINE DIVISION</p>
+                        
+                        <div class="production-info-badges">
+                            <div class="info-row">
+                                <span class="info-badge day">@DateTime.Now.ToString("dddd", System.Globalization.CultureInfo.GetCultureInfo("id-ID"))</span>
+                                <span class="info-badge shift">SHIFT @currentShift.Replace("S", "")</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-badge date">@DateTime.Now.ToString("dd/MM/yyyy")</span>
+                                <span class="info-badge time">@DateTime.Now.ToString("HH:mm:ss")</span>
+                            </div>
                         </div>
-                        <div class="production-header-right">
-                            <div class="production-shift-badge">Shift: <strong>@currentShift.Replace("S", "")</strong></div>
-                            <div class="production-time-badge">🕒 @DateTime.Now.ToString("HH:mm:ss")</div>
-                            <div class="production-date-badge">@DateTime.Now.ToString("dddd", System.Globalization.CultureInfo.GetCultureInfo("id-ID"))</div>
-                            <div class="production-date-badge">📅 @DateTime.Now.ToString("dd/MM/yyyy")</div>
+                        
+                        <!-- Legend -->
+                        <div class="production-header-legend">
+                            <div class="header-legend-item">
+                                <div class="header-legend-dot normal"></div>
+                                <span>Normal Condition</span>
+                            </div>
+                            <div class="header-legend-item">
+                                <div class="header-legend-dot error"></div>
+                                <span>Trouble Condition</span>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="production-line-overlay"></div>
+        
                     
-                    <!-- LINE A Label -->
-                    <div class="line-label line-a">LINE A</div>
-                    
-                    <!-- LINE B Label -->
-                    <div class="line-label line-b">LINE B</div>
-                    
-                    <!-- LINE A Indicators (Bottom) -->
+                    <!-- LINE A Indicators (Bottom) with Labels -->
                     @{
                         var lineAProcesses = GetLineAProcesses();
                         var lineAIndex = 0;
@@ -180,21 +191,32 @@
                     {
                         var position = GetLineAPosition(lineAIndex);
                         var isError = IsProcessError(process, "A");
+                        var timerDisplay = GetTimerForProcess(process, "A");
                         
-                        <div class="process-indicator @(isError ? "error" : "normal")" style="top: @(position.top)%; left: @(position.left)%;">
-                            <div class="process-label @(isError ? "error-label" : "normal-label")">
-                                <span class="process-label-number">@(lineAIndex + 1)</span>
-                                <span class="process-label-name">@process</span>
-                                @if (isError)
-                                {
-                                    <span class="process-label-timer">@GetTimerDisplay(process)</span>
-                                }
-                            </div>
+                        <div class="process-point-wrapper" style="top: @(position.top)%; left: @(position.left)%;">
+                            <div class="process-indicator-dot @(isError ? "error" : "normal")"></div>
+                            
+                            <!-- Label for NORMAL (show on hover) -->
+                            @if (!isError)
+                            {
+                                <div class="process-label-tag normal-tag">
+                                    <span class="label-text">@process</span>
+                                </div>
+                            }
+                            
+                            <!-- Label for ERROR (always visible) -->
+                            @if (isError)
+                            {
+                                <div class="process-label-tag error-tag">
+                                    <span class="label-text">@process</span>
+                                    <span class="label-timer">@timerDisplay</span>
+                                </div>
+                            }
                         </div>
                         lineAIndex++;
                     }
                     
-                    <!-- LINE B Indicators (Top) -->
+                    <!-- LINE B Indicators (Top) with Labels -->
                     @{
                         var lineBProcesses = GetLineBProcesses();
                         var lineBIndex = 0;
@@ -203,61 +225,68 @@
                     {
                         var position = GetLineBPosition(lineBIndex);
                         var isError = IsProcessError(process, "B");
+                        var timerDisplay = GetTimerForProcess(process, "B");
                         
-                        <div class="process-indicator @(isError ? "error" : "normal")" style="top: @(position.top)%; left: @(position.left)%;">
-                            <div class="process-label @(isError ? "error-label" : "normal-label")">
-                                <span class="process-label-number">@(lineBIndex + 1)</span>
-                                <span class="process-label-name">@process</span>
-                                @if (isError)
-                                {
-                                    <span class="process-label-timer">@GetTimerDisplay(process)</span>
-                                }
-                            </div>
+                        <div class="process-point-wrapper" style="top: @(position.top)%; left: @(position.left)%;">
+                            <div class="process-indicator-dot @(isError ? "error" : "normal")"></div>
+                            
+                            <!-- Label for NORMAL (show on hover) -->
+                            @if (!isError)
+                            {
+                                <div class="process-label-tag normal-tag">
+                                    <span class="label-text">@process</span>
+                                </div>
+                            }
+                            
+                            <!-- Label for ERROR (always visible) -->
+                            @if (isError)
+                            {
+                                <div class="process-label-tag error-tag">
+                                    <span class="label-text">@process</span>
+                                    <span class="label-timer">@timerDisplay</span>
+                                </div>
+                            }
                         </div>
                         lineBIndex++;
                     }
                     
-                    <!-- LINE A Summary Cards -->
-                    <div class="line-summary-cards line-a">
-                        <div class="summary-card process-stop">
-                            <div class="summary-card-title">Process Stop</div>
-                            <div class="summary-card-value">@GetProcessStopCount("A")</div>
-                            <div class="summary-card-unit">minutes</div>
-                        </div>
-                        <div class="summary-card machine-stop">
-                            <div class="summary-card-title">Machine Stop</div>
-                            <div class="summary-card-value">@GetMachineStopCount("A")</div>
-                            <div class="summary-card-unit">minutes</div>
+                    <!-- LINE A Summary Cards (TOP) -->
+                    <div class="line-summary-container line-b-summary">
+                        <div class="line-title-label">LINE A</div>
+                        <div class="summary-cards-row">
+                            <div class="summary-card-new process-stop">
+                                <div class="summary-card-label">PROCESS STOP</div>
+                                <div class="summary-card-number">@GetProcessStopTimeValue("A")</div>
+                                <div class="summary-card-badge">@GetProcessStopTimeUnit("A")</div>
+                            </div>
+                            <div class="summary-card-new machine-stop">
+                                <div class="summary-card-label">MACHINE STOP</div>
+                                <div class="summary-card-number">@GetMachineStopTimeValue("A")</div>
+                                <div class="summary-card-badge">@GetMachineStopTimeUnit("A")</div>
+                            </div>
                         </div>
                     </div>
                     
-                    <!-- LINE B Summary Cards -->
-                    <div class="line-summary-cards line-b">
-                        <div class="summary-card process-stop">
-                            <div class="summary-card-title">Process Stop</div>
-                            <div class="summary-card-value">@GetProcessStopCount("B")</div>
-                            <div class="summary-card-unit">minutes</div>
-                        </div>
-                        <div class="summary-card machine-stop">
-                            <div class="summary-card-title">Machine Stop</div>
-                            <div class="summary-card-value">@GetMachineStopCount("B")</div>
-                            <div class="summary-card-unit">minutes</div>
+                    <!-- LINE B Summary Cards (BOTTOM) -->
+                    <div class="line-summary-container line-a-summary">
+                        <div class="line-title-label">LINE B</div>
+                        <div class="summary-cards-row">
+                            <div class="summary-card-new process-stop">
+                                <div class="summary-card-label">PROCESS STOP</div>
+                                <div class="summary-card-number">@GetProcessStopTimeValue("B")</div>
+                                <div class="summary-card-badge">@GetProcessStopTimeUnit("B")</div>
+                            </div>
+                            <div class="summary-card-new machine-stop">
+                                <div class="summary-card-label">MACHINE STOP</div>
+                                <div class="summary-card-number">@GetMachineStopTimeValue("B")</div>
+                                <div class="summary-card-badge">@GetMachineStopTimeUnit("B")</div>
+                            </div>
                         </div>
                     </div>
                     
-                    <!-- Logo & Legend Bottom Left -->
-                    <div class="production-footer-left">
-                        <img src="images/sharp-pe-logo.svg" alt="SHARP Logo" class="production-logo" />
-                        <div class="production-legend">
-                            <div class="legend-item">
-                                <div class="legend-dot normal"></div>
-                                <span>Normal Condition</span>
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-dot error"></div>
-                                <span>Trouble Condition</span>
-                            </div>
-                        </div>
+                    <!-- Logo SHARP Bottom Left -->
+                    <div class="production-logo-container">
+                        <img src="images/sharp-pe-logo.svg" alt="SHARP Logo" class="sharp-logo-image" />
                     </div>
                 </div>
         </div>
@@ -355,10 +384,11 @@
         return mesinNames;
     }
 
-    // Line B Processes (sama dengan urutan mesinNames)
+    // Line B Processes (untuk sementara kosong/dummy karena belum ada database)
     private List<string> GetLineBProcesses()
     {
-        return mesinNames;
+        // Return empty list atau dummy data karena Line B belum ada database
+        return new List<string>();
     }
 
     // Posisi indikator untuk Line A (bottom line)
@@ -418,6 +448,22 @@
         var isDataFresh = timeDifference.TotalSeconds <= 5;
         
         return data.data_timer > 0 && isDataFresh;
+    }
+
+    // Get timer for process in error state
+    private string GetTimerForProcess(string processName, string line)
+    {
+        var fullName = $"{currentShift} - {processName}";
+        var data = logs?.FirstOrDefault(x => x.nama_mesin_proses == fullName);
+        
+        if (data == null) return "";
+        
+        var timeDifference = DateTime.Now - data.waktu;
+        var isDataFresh = timeDifference.TotalSeconds <= 5;
+        
+        if (!isDataFresh || data.data_timer <= 0) return "";
+        
+        return FormatTimerShort(data.data_timer);
     }
 
     // Get timer display for process
@@ -486,6 +532,253 @@
         }
         
         return totalSeconds / 60; // Convert to minutes
+    }
+
+    // Get Process Stop time (formatted as s/m/h)
+    private string GetProcessStopTime(string line)
+    {
+        if (logs == null) return "0s";
+        
+        int totalSeconds = 0;
+        foreach (var process in processStopNames)
+        {
+            var fullName = $"{currentShift} - {process}";
+            var data = logs.FirstOrDefault(x => x.nama_mesin_proses == fullName);
+            
+            if (data != null)
+            {
+                var timeDifference = DateTime.Now - data.waktu;
+                var isDataFresh = timeDifference.TotalSeconds <= 5;
+                
+                if (isDataFresh && data.data_timer > 0)
+                {
+                    totalSeconds += data.data_timer;
+                }
+            }
+        }
+        
+        return FormatTimerCompact(totalSeconds);
+    }
+
+    // Get Machine Stop time (formatted as s/m/h)
+    private string GetMachineStopTime(string line)
+    {
+        if (logs == null) return "0s";
+        
+        int totalSeconds = 0;
+        foreach (var process in machineStopNames)
+        {
+            var fullName = $"{currentShift} - {process}";
+            var data = logs.FirstOrDefault(x => x.nama_mesin_proses == fullName);
+            
+            if (data != null)
+            {
+                var timeDifference = DateTime.Now - data.waktu;
+                var isDataFresh = timeDifference.TotalSeconds <= 5;
+                
+                if (isDataFresh && data.data_timer > 0)
+                {
+                    totalSeconds += data.data_timer;
+                }
+            }
+        }
+        
+        return FormatTimerCompact(totalSeconds);
+    }
+
+    // Format timer for summary cards (compact version)
+    private string FormatTimerCompact(int seconds)
+    {
+        if (seconds >= 3600) 
+        {
+            int hours = seconds / 3600;
+            int minutes = (seconds % 3600) / 60;
+            if (minutes > 0)
+                return $"{hours}h {minutes}m";
+            else
+                return $"{hours}h";
+        }
+        else if (seconds >= 60)
+        {
+            int minutes = seconds / 60;
+            int secs = seconds % 60;
+            if (secs > 0)
+                return $"{minutes}m {secs}s";
+            else
+                return $"{minutes}m";
+        }
+        else 
+        {
+            return $"{seconds}s";
+        }
+    }
+
+    // Get Process Stop time value (only the number)
+    private string GetProcessStopTimeValue(string line)
+    {
+        if (logs == null) return "0";
+        
+        // Line B belum ada database, return 0
+        if (line == "B") return "0";
+        
+        int totalSeconds = 0;
+        foreach (var process in processStopNames)
+        {
+            var fullName = $"{currentShift} - {process}";
+            var data = logs.FirstOrDefault(x => x.nama_mesin_proses == fullName);
+            
+            if (data != null)
+            {
+                var timeDifference = DateTime.Now - data.waktu;
+                var isDataFresh = timeDifference.TotalSeconds <= 5;
+                
+                if (isDataFresh && data.data_timer > 0)
+                {
+                    totalSeconds += data.data_timer;
+                }
+            }
+        }
+        
+        if (totalSeconds >= 3600)
+        {
+            int hours = totalSeconds / 3600;
+            int minutes = (totalSeconds % 3600) / 60;
+            if (minutes > 0)
+                return $"{hours}:{minutes:D2}";
+            else
+                return $"{hours}";
+        }
+        else if (totalSeconds >= 60)
+        {
+            int minutes = totalSeconds / 60;
+            int secs = totalSeconds % 60;
+            if (secs > 0)
+                return $"{minutes}:{secs:D2}";
+            else
+                return $"{minutes}";
+        }
+        else
+        {
+            return $"{totalSeconds}";
+        }
+    }
+
+    // Get Process Stop time unit
+    private string GetProcessStopTimeUnit(string line)
+    {
+        if (logs == null) return "SEC";
+        
+        // Line B belum ada database, return SEC
+        if (line == "B") return "SEC";
+        
+        int totalSeconds = 0;
+        foreach (var process in processStopNames)
+        {
+            var fullName = $"{currentShift} - {process}";
+            var data = logs.FirstOrDefault(x => x.nama_mesin_proses == fullName);
+            
+            if (data != null)
+            {
+                var timeDifference = DateTime.Now - data.waktu;
+                var isDataFresh = timeDifference.TotalSeconds <= 5;
+                
+                if (isDataFresh && data.data_timer > 0)
+                {
+                    totalSeconds += data.data_timer;
+                }
+            }
+        }
+        
+        if (totalSeconds >= 3600)
+            return "HOUR";
+        else if (totalSeconds >= 60)
+            return "MIN";
+        else
+            return "SEC";
+    }
+
+    // Get Machine Stop time value (only the number)
+    private string GetMachineStopTimeValue(string line)
+    {
+        if (logs == null) return "0";
+        
+        // Line B belum ada database, return 0
+        if (line == "B") return "0";
+        
+        int totalSeconds = 0;
+        foreach (var process in machineStopNames)
+        {
+            var fullName = $"{currentShift} - {process}";
+            var data = logs.FirstOrDefault(x => x.nama_mesin_proses == fullName);
+            
+            if (data != null)
+            {
+                var timeDifference = DateTime.Now - data.waktu;
+                var isDataFresh = timeDifference.TotalSeconds <= 5;
+                
+                if (isDataFresh && data.data_timer > 0)
+                {
+                    totalSeconds += data.data_timer;
+                }
+            }
+        }
+        
+        if (totalSeconds >= 3600)
+        {
+            int hours = totalSeconds / 3600;
+            int minutes = (totalSeconds % 3600) / 60;
+            if (minutes > 0)
+                return $"{hours}:{minutes:D2}";
+            else
+                return $"{hours}";
+        }
+        else if (totalSeconds >= 60)
+        {
+            int minutes = totalSeconds / 60;
+            int secs = totalSeconds % 60;
+            if (secs > 0)
+                return $"{minutes}:{secs:D2}";
+            else
+                return $"{minutes}";
+        }
+        else
+        {
+            return $"{totalSeconds}";
+        }
+    }
+
+    // Get Machine Stop time unit
+    private string GetMachineStopTimeUnit(string line)
+    {
+        if (logs == null) return "SEC";
+        
+        // Line B belum ada database, return SEC
+        if (line == "B") return "SEC";
+        
+        int totalSeconds = 0;
+        foreach (var process in machineStopNames)
+        {
+            var fullName = $"{currentShift} - {process}";
+            var data = logs.FirstOrDefault(x => x.nama_mesin_proses == fullName);
+            
+            if (data != null)
+            {
+                var timeDifference = DateTime.Now - data.waktu;
+                var isDataFresh = timeDifference.TotalSeconds <= 5;
+                
+                if (isDataFresh && data.data_timer > 0)
+                {
+                    totalSeconds += data.data_timer;
+                }
+            }
+        }
+        
+        if (totalSeconds >= 3600)
+            return "HOUR";
+        else if (totalSeconds >= 60)
+            return "MIN";
+        else
+            return "SEC";
     }
 
     protected override void OnInitialized()
