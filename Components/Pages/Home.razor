@@ -193,7 +193,7 @@
                         var isError = IsProcessError(process, "A");
                         var timerDisplay = GetTimerForProcess(process, "A");
                         
-                        <div class="process-point-wrapper" style="top: @(position.top)%; left: @(position.left)%;">
+                        <div class="process-point-wrapper" style="top: @(position.top)px; left: @(position.left)px;">
                             <div class="process-indicator-dot @(isError ? "error" : "normal")"></div>
                             
                             <!-- Label for NORMAL (show on hover) -->
@@ -227,7 +227,7 @@
                         var isError = IsProcessError(process, "B");
                         var timerDisplay = GetTimerForProcess(process, "B");
                         
-                        <div class="process-point-wrapper" style="top: @(position.top)%; left: @(position.left)%;">
+                        <div class="process-point-wrapper" style="top: @(position.top)px; left: @(position.left)px;">
                             <div class="process-indicator-dot @(isError ? "error" : "normal")"></div>
                             
                             <!-- Label for NORMAL (show on hover) -->
@@ -391,64 +391,64 @@
         return new List<string>();
     }
 
-    // Posisi indikator untuk Line A (bottom line)
+    // Posisi indikator untuk Line A (bottom line) - MENGGUNAKAN PIXEL ABSOLUT
     private (double top, double left) GetLineAPosition(int index)
     {
         // LINE A: Bottom line - dari kiri ke kanan mengikuti conveyor
-        // Posisi disesuaikan dengan jalur production line di background image
-        // Gunakan titik (.) untuk desimal, contoh: 8.5, 12.75, dll
+        // PENTING: Nilai dalam PIXEL untuk konsistensi di semua resolusi
+        // Base resolution: 1920x1080
         double[] leftPositions = new double[] {
-            71.25,    // 0: Auto Bellow Error
-            68,   // 1: Base to Tub Stop
-            66.50,   // 2: Turn Machine Error
-            64,   // 3: Flange Screw Stop
-            61.50,      // 4: Wiring Stop
-            59.75,      // 5: Half Transfer Error
-            58.25,      // 6: Visual Instructional Stop
-            56,      // 7: Auto Water Error
-            54.25,      // 8: I/W Test Error
-            52.75,      // 9: FA Stop
-            51.25,      // 10: Washing Perform Test Error
-            50,      // 11: Feed Water Stop
-            48.50,      // 12: Inspection Room Stop
-            47,      // 13: Dehydration Test Error
-            45,      // 14: Back Cover Stop
-            43.50,      // 15: Waranty Stop
-            41.25,      // 16: Transfer Packing Error
-            39.25,      // 17: Bottom Pad Stop
-            37.50,      // 18: Packing Stop
-            36,      // 19: Finish Packing Stop
-            34.75,      // 20: Auto Folding Error
-            33.40,      // 21: Straping #1 Error
-            32.25,      // 22: Straping #2 Error
-            31       // 23: Lifter Error
+            1370,    // 0: Auto Bellow Error
+            1306,    // 1: Base to Tub Stop
+            1281,    // 2: Turn Machine Error
+            1238,    // 3: Flange Screw Stop
+            1181,    // 4: Wiring Stop
+            1148,    // 5: Half Transfer Error
+            1118,    // 6: Visual Instructional Stop
+            1075,    // 7: Auto Water Error
+            1041,    // 8: I/W Test Error
+            1013,    // 9: FA Stop
+            984,     // 10: Washing Perform Test Error
+            960,     // 11: Feed Water Stop
+            931,     // 12: Inspection Room Stop
+            902,     // 13: Dehydration Test Error
+            864,     // 14: Back Cover Stop
+            835,     // 15: Waranty Stop
+            792,     // 16: Transfer Packing Error
+            753,     // 17: Bottom Pad Stop
+            720,     // 18: Packing Stop
+            691,     // 19: Finish Packing Stop
+            667,     // 20: Auto Folding Error
+            641,     // 21: Straping #1 Error
+            619,     // 22: Straping #2 Error
+            595      // 23: Lifter Error
         };
         
         double[] topPositions = new double[] {
-            11,      // 0: Auto Bellow Error
-            18.2,    // 1: Base to Tub Stop
-            21.55,   // 2: Turn Machine Error
-            26.5,    // 3: Flange Screw Stop
-            31.5,    // 4: Wiring Stop
-            35.25,    // 5: Half Transfer Error
-            38.25,      // 6: Visual Instructional Stop
-            42.5,      // 7: Auto Water Error
-            46,      // 8: I/W Test Error
-            49,      // 9: FA Stop
-            52,      // 10: Washing Perform Test Error
-            54.75,      // 11: Feed Water Stop
-            57.75,      // 12: Inspection Room Stop
-            61,      // 13: Dehydration Test Error
-            65,      // 14: Back Cover Stop
-            68,      // 15: Waranty Stop
-            72,      // 16: Transfer Packing Error
-            75.50,      // 17: Bottom Pad Stop
-            78.50,      // 18: Packing Stop
-            81.25,      // 19: Finish Packing Stop
-            83.75,      // 20: Auto Folding Error
-            86.25,      // 21: Straping #1 Error
-            88.75,      // 22: Straping #2 Error
-            91.50      // 23: Lifter Error
+            119,     // 0: Auto Bellow Error
+            197,     // 1: Base to Tub Stop
+            233,     // 2: Turn Machine Error
+            286,     // 3: Flange Screw Stop
+            340,     // 4: Wiring Stop
+            381,     // 5: Half Transfer Error
+            413,     // 6: Visual Instructional Stop
+            459,     // 7: Auto Water Error
+            497,     // 8: I/W Test Error
+            529,     // 9: FA Stop
+            562,     // 10: Washing Perform Test Error
+            591,     // 11: Feed Water Stop
+            624,     // 12: Inspection Room Stop
+            659,     // 13: Dehydration Test Error
+            702,     // 14: Back Cover Stop
+            734,     // 15: Waranty Stop
+            778,     // 16: Transfer Packing Error
+            815,     // 17: Bottom Pad Stop
+            848,     // 18: Packing Stop
+            877,     // 19: Finish Packing Stop
+            904,     // 20: Auto Folding Error
+            932,     // 21: Straping #1 Error
+            958,     // 22: Straping #2 Error
+            988      // 23: Lifter Error
         };
         
         if (index < leftPositions.Length)
@@ -456,7 +456,7 @@
             return (topPositions[index], leftPositions[index]);
         }
         
-        return (70, 5 + (index * 3.8));
+        return (700, 100 + (index * 73));
     }
 
     // Posisi indikator untuk Line B (top line)
