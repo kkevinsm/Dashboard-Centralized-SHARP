@@ -3,6 +3,8 @@
 @using CentralizedDashboard.Models
 @using CentralizedDashboard.Services
 @inject MesinService ServiceKita
+@inject ShiftConfigurationService ShiftService
+@inject ShiftAccumulationService AccumulationService
 
 <style>
     /* Sesuaikan di sini */
@@ -111,16 +113,74 @@
 @code {
     private List<TableData> tableData = new();
     private List<ErrorLog>? logs = null;
+    private List<ShiftConfiguration>? shiftConfigs = null;
     private bool showDetailModal = false;
     private TableData? selectedItem = null;
+    
+    private List<string> processStopNames = new List<string>
+    {
+        "Base to Tub Stop",
+        "Flange Screw Stop",
+        "Wiring Stop",
+        "Visual Instructional Stop",
+        "FA Stop",
+        "Feed Water Stop",
+        "Inspection Room Stop",
+        "Back Cover Stop",
+        "Waranty Stop",
+        "Bottom Pad Stop",
+        "Packing Stop",
+        "Finish Packing Stop"
+    };
+
+    private List<string> machineStopNames = new List<string>
+    {
+       "Auto Bellow Error",
+        "Turn Machine Error",
+        "Half Transfer Error",
+        "Auto Water Error",
+        "I/W Test Error",
+        "Washing Perform Test Error",
+        "Dehydration Test Error",
+        "Transfer Packing Error",
+        "Auto Folding Error",
+        "Straping #1 Error",
+        "Straping #2 Error",
+        "Lifter Error"
+    };
 
     protected override async Task OnInitializedAsync()
     {
+        // Initialize tabel shift_accumulation jika belum ada
+        AccumulationService.InitializeTable();
+        
         // Load data dari database
         logs = ServiceKita.GetLatestLogs();
         
-        // Generate 7 hari ke belakang
+        // Load shift configuration dari database
+        shiftConfigs = ShiftService.GetAllShifts();
+        
+        // Generate 7 hari ke belakang dengan load dari cache dan update jika ada data baru
         GenerateLast7Days();
+        
+        // Start background task untuk check data baru dan update
+        _ = Task.Run(async () =>
+        {
+            while (true)
+            {
+                await Task.Delay(5000); // Check setiap 5 detik
+                await InvokeAsync(async () =>
+                {
+                    // Reload logs terbaru
+                    logs = ServiceKita.GetLatestLogs();
+                    
+                    // Update akumulasi jika ada data baru
+                    UpdateAccumulationIfNeeded();
+                    
+                    StateHasChanged();
+                });
+            }
+        });
     }
 
     private void GenerateLast7Days()
@@ -133,10 +193,10 @@
             DateTime date = DateTime.Now.AddDays(-i);
             string dateStr = date.ToString("dddd dd/MM/yyyy", System.Globalization.CultureInfo.GetCultureInfo("id-ID"));
             
-            // Hitung akumulasi per shift
-            var shift1Total = GetShiftAccumulation(date, 1);
-            var shift2Total = GetShiftAccumulation(date, 2);
-            var shift3Total = GetShiftAccumulation(date, 3);
+            // Hitung akumulasi per shift dan simpan/update ke database
+            var shift1Total = GetShiftAccumulationAndSave(date, 1);
+            var shift2Total = GetShiftAccumulationAndSave(date, 2);
+            var shift3Total = GetShiftAccumulationAndSave(date, 3);
             
             tableData.Add(new TableData 
             { 
@@ -148,34 +208,108 @@
         }
     }
 
-    private int GetShiftAccumulation(DateTime date, int shift)
+    private int GetShiftAccumulationAndSave(DateTime date, int shift)
     {
-        if (logs == null) return 0;
+        // Ambil data yang sudah tersimpan sebelumnya
+        var stored = AccumulationService.GetAccumulation(date, shift);
         
-        // Tentukan jam awal dan akhir untuk setiap shift
-        DateTime shiftStart, shiftEnd;
-        switch (shift)
+        // Hitung akumulasi terbaru dari logs
+        int latestTotal = CalculateShiftAccumulation(date, shift);
+        
+        // Jika belum ada record, save langsung
+        if (stored == null)
         {
-            case 1: // 06:00 - 14:00
-                shiftStart = date.AddHours(6);
-                shiftEnd = date.AddHours(14);
-                break;
-            case 2: // 14:00 - 22:00
-                shiftStart = date.AddHours(14);
-                shiftEnd = date.AddHours(22);
-                break;
-            case 3: // 22:00 - 06:00 (next day)
-                shiftStart = date.AddHours(22);
-                shiftEnd = date.AddDays(1).AddHours(6);
-                break;
-            default:
-                return 0;
+            AccumulationService.SaveAccumulation(date, shift, latestTotal);
+        }
+        else
+        {
+            // Jika sudah ada, hanya save DELTA (selisih)
+            // Supaya tidak double-count
+            int delta = latestTotal - stored.TotalSeconds;
+            if (delta > 0)
+            {
+                AccumulationService.SaveAccumulation(date, shift, delta);
+            }
         }
         
-        // Akumulasi semua timer data dalam range shift tersebut
-        var totalSeconds = logs
-            .Where(log => log.waktu >= shiftStart && log.waktu < shiftEnd)
-            .Sum(log => log.data_timer);
+        // Return total terbaru dari database
+        var updatedRecord = AccumulationService.GetAccumulation(date, shift);
+        return updatedRecord?.TotalSeconds ?? 0;
+    }
+
+    private void UpdateAccumulationIfNeeded()
+    {
+        // Update akumulasi hanya untuk hari ini (untuk catch data terbaru)
+        DateTime today = DateTime.Now.Date;
+        
+        for (int shift = 1; shift <= 3; shift++)
+        {
+            // Ambil data yang sudah ada di database
+            var stored = AccumulationService.GetAccumulation(today, shift);
+            
+            // Hitung akumulasi terbaru dari logs
+            int latestTotal = CalculateShiftAccumulation(today, shift);
+            
+            // Jika belum ada record, save langsung
+            if (stored == null)
+            {
+                AccumulationService.SaveAccumulation(today, shift, latestTotal);
+            }
+            else
+            {
+                // Hanya save DELTA (selisih) untuk avoid double-count
+                int delta = latestTotal - stored.TotalSeconds;
+                if (delta > 0)
+                {
+                    AccumulationService.SaveAccumulation(today, shift, delta);
+                }
+            }
+        }
+    }
+
+    private int CalculateShiftAccumulation(DateTime date, int shift)
+    {
+        if (logs == null || shiftConfigs == null) return 0;
+        
+        // Ambil konfigurasi shift dari database
+        var shiftConfig = shiftConfigs.FirstOrDefault(s => s.ShiftName == $"Shift {shift}");
+        if (shiftConfig == null) return 0;
+        
+        // Tentukan jam awal dan akhir untuk setiap shift berdasarkan konfigurasi
+        DateTime shiftStart, shiftEnd;
+        
+        // Konversi TimeOnly ke waktu pada tanggal yang ditentukan
+        shiftStart = date.Date.Add(shiftConfig.StartTime.ToTimeSpan());
+        shiftEnd = date.Date.Add(shiftConfig.EndTime.ToTimeSpan());
+        
+        // Jika end time lebih kecil dari start time, berarti shift melewat
+        //i tengah malam
+        if (shiftEnd <= shiftStart)
+        {
+            shiftEnd = shiftEnd.AddDays(1);
+        }
+
+        // Hitung shift berdasarkan waktu
+        string shiftLabel = $"S{shift}";
+        
+        // Akumulasi semua timer data (Process Stop + Machine Stop) dalam range shift tersebut
+        int totalSeconds = 0;
+        
+        // Combine semua nama mesin (process stop + machine stop)
+        var allMachines = new List<string>(processStopNames);
+        allMachines.AddRange(machineStopNames);
+        
+        foreach (var machine in allMachines)
+        {
+            var fullName = $"{shiftLabel} - {machine}";
+            var logsInRange = logs
+                .Where(log => log.nama_mesin_proses == fullName && 
+                             log.waktu >= shiftStart && 
+                             log.waktu < shiftEnd)
+                .ToList();
+            
+            totalSeconds += logsInRange.Sum(log => log.data_timer);
+        }
         
         return totalSeconds;
     }
@@ -231,3 +365,4 @@
         public string Shift3 { get; set; } = "";
     }
 }
+

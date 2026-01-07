@@ -4,6 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<CentralizedDashboard.Services.MesinService>();
 builder.Services.AddScoped<CentralizedDashboard.Services.ShiftConfigurationService>();
+builder.Services.AddScoped<CentralizedDashboard.Services.ShiftAccumulationService>();
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
