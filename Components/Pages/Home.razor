@@ -250,38 +250,43 @@
                         lineBIndex++;
                     }
                     
-                    <!-- LINE A Summary Cards (TOP) -->
-                    <div class="line-summary-container line-b-summary">
-                        <div class="line-title-label">LINE A</div>
-                        <div class="summary-cards-row">
-                            <div class="summary-card-new process-stop">
-                                <div class="summary-card-label">PROCESS STOP</div>
-                                <div class="summary-card-number">@GetProcessStopTimeValue("A")</div>
-                                <div class="summary-card-badge">@GetProcessStopTimeUnit("A")</div>
-                            </div>
-                            <div class="summary-card-new machine-stop">
-                                <div class="summary-card-label">MACHINE STOP</div>
-                                <div class="summary-card-number">@GetMachineStopTimeValue("A")</div>
-                                <div class="summary-card-badge">@GetMachineStopTimeUnit("A")</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- LINE B Summary Cards (BOTTOM) -->
-                    <div class="line-summary-container line-a-summary">
-                        <div class="line-title-label">LINE B</div>
-                        <div class="summary-cards-row">
-                            <div class="summary-card-new process-stop">
-                                <div class="summary-card-label">PROCESS STOP</div>
-                                <div class="summary-card-number">@GetProcessStopTimeValue("B")</div>
-                                <div class="summary-card-badge">@GetProcessStopTimeUnit("B")</div>
-                            </div>
-                            <div class="summary-card-new machine-stop">
-                                <div class="summary-card-label">MACHINE STOP</div>
-                                <div class="summary-card-number">@GetMachineStopTimeValue("B")</div>
-                                <div class="summary-card-badge">@GetMachineStopTimeUnit("B")</div>
+                    <!-- Summary Cards Container (RIGHT SIDE) -->
+                    <div style="position: absolute; top: 20px; right: 20px; z-index: 1000; display: flex; flex-direction: column; gap: 15px; max-width: 400px;">
+                        
+                        <!-- LINE A Summary Cards (ATAS) -->
+                        <div class="line-summary-container line-a-summary" style="position: relative; top: 0; right: 0;">
+                            <div class="line-title-label">LINE A</div>
+                            <div class="summary-cards-row">
+                                <div class="summary-card-new process-stop">
+                                    <div class="summary-card-label">PROCESS STOP</div>
+                                    <div class="summary-card-number">@GetProcessStopTimeValue("A")</div>
+                                    <div class="summary-card-badge">@GetProcessStopTimeUnit("A")</div>
+                                </div>
+                                <div class="summary-card-new machine-stop">
+                                    <div class="summary-card-label">MACHINE STOP</div>
+                                    <div class="summary-card-number">@GetMachineStopTimeValue("A")</div>
+                                    <div class="summary-card-badge">@GetMachineStopTimeUnit("A")</div>
+                                </div>
                             </div>
                         </div>
+                        
+                        <!-- LINE B Summary Cards (BAWAH) -->
+                        <div class="line-summary-container line-b-summary" style="position: relative; top: 0; right: 0;">
+                            <div class="line-title-label">LINE B</div>
+                            <div class="summary-cards-row">
+                                <div class="summary-card-new process-stop">
+                                    <div class="summary-card-label">PROCESS STOP</div>
+                                    <div class="summary-card-number">@GetProcessStopTimeValue("B")</div>
+                                    <div class="summary-card-badge">@GetProcessStopTimeUnit("B")</div>
+                                </div>
+                                <div class="summary-card-new machine-stop">
+                                    <div class="summary-card-label">MACHINE STOP</div>
+                                    <div class="summary-card-number">@GetMachineStopTimeValue("B")</div>
+                                    <div class="summary-card-badge">@GetMachineStopTimeUnit("B")</div>
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
                     
                     <!-- Logo SHARP Bottom Left -->

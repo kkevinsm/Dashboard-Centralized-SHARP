@@ -49,9 +49,9 @@
     overflow-x: hidden;
 }
 
-/* Page 2: No scroll for production line view */
+/* Page 2: No scroll for production line view - Allow visible overflow untuk summary cards */
 .carousel-page:last-child {
-    overflow: hidden !important; /* Force no scroll */
+    overflow: visible !important; /* Ubah ke visible agar summary cards tidak terpotong */
     position: relative;
 }
 
@@ -147,30 +147,25 @@
 
 /* Production Line Container - Fixed size untuk menjaga posisi indicator */
 .production-line-container {
+    position: relative;
     width: 100%;
     height: 100vh;
-    min-height: 100vh;
-    max-height: 100vh;
-    min-width: 1920px; /* Minimum width untuk menjaga proporsi */
-    background-color: #e8f4f8; /* Fallback color */
-    background-image: url('../images/dashboard-bg-3d.jpg');
-    background-size: 100% 100%; /* Fixed size - background tidak berubah */
-    background-position: center;
+    background-image: url('images/dashboard-bg-3d.jpg');
+    background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
-    position: relative;
-    overflow: hidden !important;
-    margin: 0;
-    padding: 0;
+    overflow: hidden;
 }
 
 .production-line-overlay {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.03);
+    width: 100%;
+    height: 100%;
+    background: transparent;
     pointer-events: none;
+    z-index: 1;
 }
 
 /* Production Header Left Top */
@@ -373,19 +368,21 @@
     }
 }
 
-/* Summary Cards - New Design */
+/* Summary Cards - New Design - FIXED POSITION */
 .line-summary-container {
     position: absolute;
-    right: 30px;
     z-index: 100;
+    /* Fixed position agar tidak terpotong */
 }
 
 .line-summary-container.line-a-summary {
-    bottom: 30px;
+    top: 260px;
+    right: 30px; /* LINE A di atas LINE B */
 }
 
 .line-summary-container.line-b-summary {
     top: 30px;
+    right: 30px; /* LINE B paling atas */
 }
 
 .line-title-label {
@@ -410,6 +407,7 @@
     padding: 16px 20px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
     min-width: 130px;
+    max-width: 180px; /* Tambah max-width agar tidak terlalu lebar */
     text-align: center;
     transition: all 0.3s ease;
     border: 2px solid transparent;
