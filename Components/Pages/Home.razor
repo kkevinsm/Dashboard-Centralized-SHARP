@@ -146,15 +146,11 @@
         
         <!-- PAGE 2: Production Line View -->
         <div class="carousel-page">
-            <!-- Production Line Container - Full Page with Aspect Ratio Control -->
+            <!-- Production Line Container - Full Page -->
                 <div class="production-line-container">
                     
-                    <!-- Aspect Ratio Wrapper (16:9) -->
-                    <div style="position: absolute; width: 100%; padding-bottom: 56.25%; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-                    
                     <!-- Header Left Top -->
-                    <div class="production-header-left-top">
+                    <div class="production-header-left-top" style="position: absolute; z-index: 500;">
                         <h1 class="production-main-title">CENTRALIZED</h1>
                         <h1 class="production-main-title">MONITORING SYSTEM</h1>
                         <p class="production-main-subtitle">WASHING MACHINE DIVISION</p>
@@ -297,9 +293,6 @@
                     <div class="production-logo-container">
                         <img src="images/sharp-pe-logo.svg" alt="SHARP Logo" class="sharp-logo-image" />
                     </div>
-                    
-                        </div>
-                    </div>
                 </div>
         </div>
         
@@ -410,7 +403,7 @@
         // Menggunakan persentase agar responsive di semua ukuran layar
         // Base resolution: 1920x1080 untuk kalkulasi persentase
         string[] leftPositions = new string[] {
-            "71.2%",    // 0: Auto Bellow Error (1145/1920)
+            "73.2%",    // 0: Auto Bellow Error (1145/1920)
             "68.7%",    // 1: Base to Tub Stop (1103/1920)
             "66.8%",    // 2: Turn Machine Error (1063/1920)
             "64.9%",    // 3: Flange Screw Stop (1039.5/1920)
