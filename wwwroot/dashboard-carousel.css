@@ -157,23 +157,40 @@
     background-color: #e8e8e8;
 }
 
-/* Background image positioned absolutely */
+/* Background image with fixed 16:9 aspect ratio */
 .production-line-container::before {
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    max-width: none;
+    /* Fixed aspect ratio 16:9 (1920x1080) */
+    width: 177.78vh; /* 16/9 * 100vh */
+    height: 100vh;
+    max-width: 100vw;
+    max-height: 56.25vw; /* 9/16 * 100vw */
     background-image: url('images/dashboard-bg-3d.jpg');
-    background-size: cover;
+    background-size: 100% 100%;
     background-position: center center;
     background-repeat: no-repeat;
     z-index: 0;
+}
+
+/* Content wrapper with same aspect ratio as background */
+.production-content-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 177.78vh;
+    height: 100vh;
+    max-width: 100vw;
+    max-height: 56.25vw;
+    pointer-events: none;
+}
+
+.production-content-wrapper > * {
+    pointer-events: auto;
 }
 
 /* All children positioned on top of background */
