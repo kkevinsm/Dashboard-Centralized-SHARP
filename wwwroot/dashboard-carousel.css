@@ -145,16 +145,37 @@
     transform: scale(1.2);
 }
 
-/* Production Line Container - Fixed size untuk menjaga posisi indicator */
+/* Production Line Container - Fixed aspect ratio untuk menjaga posisi indicator */
 .production-line-container {
     position: relative;
     width: 100%;
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+/* Inner container with fixed aspect ratio matching background image */
+.production-line-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-image: url('images/dashboard-bg-3d.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    overflow: hidden;
+    z-index: 0;
+}
+
+/* Wrapper for indicators with fixed aspect ratio (16:9 for 1920x1080) */
+.production-line-container > * {
+    position: absolute;
+    z-index: 1;
 }
 
 .production-line-overlay {
