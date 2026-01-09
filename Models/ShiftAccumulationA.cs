@@ -2,7 +2,7 @@ using System;
 
 namespace CentralizedDashboard.Models
 {
-    public class ShiftAccumulation
+    public class ShiftAccumulationA
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }

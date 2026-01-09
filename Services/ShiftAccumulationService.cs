@@ -27,7 +27,7 @@ namespace CentralizedDashboard.Services
                 {
                     conn.Open();
                     string createTableQuery = @"
-                        CREATE TABLE IF NOT EXISTS `shift_accumulation` (
+                        CREATE TABLE IF NOT EXISTS `shift_accumulation_A` (
                             `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
                             `date` DATE NOT NULL,
                             `shift_number` INT NOT NULL,
@@ -59,7 +59,7 @@ namespace CentralizedDashboard.Services
                     conn.Open();
                     string query = @"
                         SELECT id, date, shift_number, total_seconds, updated_at
-                        FROM shift_accumulation
+                        FROM shift_accumulation_a
                         WHERE date = @date AND shift_number = @shiftNumber
                     ";
                     
@@ -109,7 +109,7 @@ namespace CentralizedDashboard.Services
                     {
                         // INSERT baru
                         string insertQuery = @"
-                            INSERT INTO shift_accumulation (date, shift_number, total_seconds)
+                            INSERT INTO shift_accumulation_a (date, shift_number, total_seconds)
                             VALUES (@date, @shiftNumber, @totalSeconds)
                         ";
 
@@ -126,7 +126,7 @@ namespace CentralizedDashboard.Services
                     {
                         // UPDATE existing - TAMBAH nilai baru ke total
                         string updateQuery = @"
-                            UPDATE shift_accumulation
+                            UPDATE shift_accumulation_a
                             SET total_seconds = total_seconds + @addSeconds,
                                 updated_at = NOW()
                             WHERE date = @date AND shift_number = @shiftNumber
@@ -149,7 +149,7 @@ namespace CentralizedDashboard.Services
             }
         }
 
-        // GET 7 hari terakhir
+        
         public List<ShiftAccumulation> GetLast7DaysAccumulation()
         {
             var result = new List<ShiftAccumulation>();
@@ -160,7 +160,7 @@ namespace CentralizedDashboard.Services
                     conn.Open();
                     string query = @"
                         SELECT id, date, shift_number, total_seconds, updated_at
-                        FROM shift_accumulation
+                        FROM shift_accumulation_a
                         WHERE date >= DATE_SUB(CURDATE(), INTERVAL 6 DAY)
                         ORDER BY date DESC, shift_number ASC
                     ";
@@ -201,7 +201,7 @@ namespace CentralizedDashboard.Services
                 {
                     conn.Open();
                     string query = @"
-                        UPDATE shift_accumulation
+                        UPDATE shift_accumulation_a
                         SET total_seconds = 0, updated_at = NOW()
                         WHERE date = @date AND shift_number = @shiftNumber
                     ";

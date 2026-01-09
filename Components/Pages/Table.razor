@@ -41,9 +41,46 @@
 </style>
 
 <div class="container-fluid mt-3">
-    <div class="mb-3">
-        <h1 class="text-primary fw-bold" style="font-size: 2.5rem;">TABLE SUMMARY</h1>
-         <p class="text-muted mb-0" style="font-size: 1.5rem;">CENTRALIZE MONITORING SYSTEM</p>
+    <div class="mb-3 d-flex justify-content-between align-items-center">
+        <div>
+            <h1 class="text-primary fw-bold" style="font-size: 2.5rem;">TABLE SUMMARY</h1>
+            <p class="text-muted mb-0" style="font-size: 1.3rem;">CENTRALIZE MONITORING SYSTEM</p>
+        </div>
+    </div>
+
+    <div class="card shadow-sm mb-3 border-0 bg-light">
+        <div class="card-body">
+            <div class="row g-3 align-items-end">
+                <div class="col-md-1 ms-3 me-5">
+                    <label class="form-label fw-bold">Line:</label>
+                    <select class="form-select" @bind="selectedLine">
+                        <option value="Line A">Line A</option>
+                        <option value="Line B">Line B</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label fw-bold">From Date:</label>
+                    <input type="date" class="form-control" @bind="startDate" max="@DateTime.Now.ToString("yyyy-MM-dd")" @bind:event="onchange" />
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label fw-bold">To Date:</label>
+                    <input type="date" class="form-control" @bind="endDate" max="@DateTime.Now.ToString("yyyy-MM-dd")" @bind:event="onchange" />
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">Show:</label>
+                    <select class="form-select" @onchange="ChangePageSize">
+                        <option value="7">7 Days</option>
+                        <option value="14">14 Days</option>
+                        <option value="30">30 Days</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary w- fw-bold" @onclick="ApplyFilter">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="card shadow-sm">
@@ -76,11 +113,47 @@
                 </table>
             </div>
         </div>
+        @* UI Kontrol Pagination *@
+        <div class="card-footer bg-white py-3">
+            <div class="d-flex justify-content-center align-items-center">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination pagination-sm mb-0">
+                        <li class="page-item @(currentPage == 0 ? "disabled" : "")">
+                            <a class="page-link" @onclick="() => GoToPage(0)" style="cursor:pointer">First</a>
+                        </li>
+
+                        @* Logika Windowing Angka *@
+                        @{
+                            int startPage = Math.Max(0, currentPage - 2);
+                            int endPage = Math.Min(totalPages - 1, startPage + 4);
+                            if (endPage - startPage < 4) startPage = Math.Max(0, endPage - 4);
+                        }
+
+                        @for (int i = startPage; i <= endPage; i++)
+                        {
+                            int pageNumber = i;
+                            <li class="page-item @(currentPage == pageNumber ? "active" : "")">
+                                <a class="page-link" @onclick="() => GoToPage(pageNumber)" style="cursor:pointer">
+                                    @(pageNumber + 1)
+                                </a>
+                            </li>
+                        }
+
+                        <li class="page-item @(currentPage >= totalPages - 1 ? "disabled" : "")">
+                            <a class="page-link" @onclick="() => GoToPage(totalPages - 1)" style="cursor:pointer">Last</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="text-center mt-2">
+                <small class="text-muted">Halaman @(currentPage + 1) dari @totalPages</small>
+            </div>
+        </div>
     </div>
 </div>
 
-@if (showDetailModal)
-{
+    @if (showDetailModal)
+    {
     <div class="modal fade show d-block" style="background: rgba(0,0,0,0.4);">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -106,12 +179,31 @@
 }
 
 <!-- Logo SHARP di pojok kanan bawah -->
-<div style="margin-top: 32px; margin-bottom: 16px; pointer-events: none;">
+<div style="margin-top: 80px; margin-bottom: 16px; pointer-events: none;">
     <img src="images/sharp-pe-logo.svg" alt="SHARP Logo" style="width:220px; height:auto; pointer-events: auto;" />
 </div>
 
-@code {
+@code { 
     private List<TableData> tableData = new();
+    private DateTime startDate = DateTime.Now.AddDays(-6);
+    private DateTime endDate = DateTime.Now;
+    private string selectedLine = "Line A";
+    
+    // Perhitungan total halaman berdasarkan rentang filter
+    private int totalPages => Math.Max(1, (int)Math.Ceiling(((endDate.Date - startDate.Date).TotalDays + 1) / pageSize));
+
+// Fungsi untuk berpindah ke halaman spesifik
+    private void GoToPage(int pageIndex)
+    {
+        if (pageIndex >= 0 && pageIndex < totalPages)
+        {
+            currentPage = pageIndex;
+            LoadPaginatedData();
+        }
+    }
+ 
+    private int currentPage = 0; // 0 berarti mulai dari hari ini
+    private int pageSize = 7;    // Default 7 hari per halaman
     private List<ErrorLog>? logs = null;
     private List<ShiftConfiguration>? shiftConfigs = null;
     private bool showDetailModal = false;
@@ -149,54 +241,61 @@
         "Lifter Error"
     };
 
+    private async Task ApplyFilter()
+    {
+        currentPage = 0; // Reset ke hal 1 saat filter berubah
+        await Task.Run(() => LoadPaginatedData());
+    }
+
+
     protected override async Task OnInitializedAsync()
     {
-        // Initialize tabel shift_accumulation jika belum ada
         AccumulationService.InitializeTable();
-        
-        // Load data dari database
         logs = ServiceKita.GetLatestLogs();
-        
-        // Load shift configuration dari database
         shiftConfigs = ShiftService.GetAllShifts();
         
-        // Generate 7 hari ke belakang dengan load dari cache dan update jika ada data baru
-        GenerateLast7Days();
+        LoadPaginatedData(); // Ganti GenerateLast7Days dengan ini
         
-        // Start background task untuk check data baru dan update
+        // Background task (modifikasi agar tidak reset ke hari pertama saat update)
         _ = Task.Run(async () =>
         {
             while (true)
             {
-                await Task.Delay(5000); // Check setiap 5 detik
+                await Task.Delay(5000);
                 await InvokeAsync(async () =>
                 {
-                    // Reload logs terbaru
                     logs = ServiceKita.GetLatestLogs();
-                    
-                    // Update akumulasi jika ada data baru
                     UpdateAccumulationIfNeeded();
-                    
+                    LoadPaginatedData(); // Refresh data halaman yang sedang dibuka
                     StateHasChanged();
                 });
             }
         });
     }
 
-    private void GenerateLast7Days()
+    private void LoadPaginatedData()
     {
         tableData = new List<TableData>();
         
-        // Ambil 7 hari terakhir (dari hari ini hingga 6 hari ke belakang)
-        for (int i = 0; i <= 6; i++)
+        // Menghitung berapa hari yang dilewati berdasarkan halaman
+        int startOffset = currentPage * pageSize;
+        
+        for (int i = 0; i < pageSize; i++)
         {
-            DateTime date = DateTime.Now.AddDays(-i);
-            string dateStr = date.ToString("dddd dd/MM/yyyy", System.Globalization.CultureInfo.GetCultureInfo("id-ID"));
+            // Mundur dari endDate berdasarkan offset halaman
+            DateTime targetDate = endDate.Date.AddDays(-(startOffset + i));
+
+            // Validasi: Tidak boleh melebihi hari ini (mencegah bug masa depan)
+            if (targetDate.Date > DateTime.Now.Date) continue;
+
+            // Validasi: Tidak boleh kurang dari tanggal filter 'From Date'
+            if (targetDate.Date < startDate.Date) break;
+
+            string dateStr = targetDate.ToString("dddd dd/MM/yyyy", System.Globalization.CultureInfo.GetCultureInfo("id-ID"));
             
-            // Hitung akumulasi per shift dan simpan/update ke database
-            var shift1Total = GetShiftAccumulationAndSave(date, 1);
-            var shift2Total = GetShiftAccumulationAndSave(date, 2);
-            var shift3Total = GetShiftAccumulationAndSave(date, 3);
+            var shift1Total = GetShiftAccumulationAndSave(targetDate, 1);
+            var shift2Total = GetShiftAccumulationAndSave(targetDate, 2);
+            var shift3Total = GetShiftAccumulationAndSave(targetDate, 3);
             
             tableData.Add(new TableData 
             { 
@@ -208,35 +307,70 @@
         }
     }
 
-    private int GetShiftAccumulationAndSave(DateTime date, int shift)
+    // Fungsi Navigasi
+    private void NextPage()
     {
-        // Ambil data yang sudah tersimpan sebelumnya
-        var stored = AccumulationService.GetAccumulation(date, shift);
-        
-        // Hitung akumulasi terbaru dari logs
-        int latestTotal = CalculateShiftAccumulation(date, shift);
-        
-        // Jika belum ada record, save langsung
-        if (stored == null)
+        // Cek apakah hari berikutnya masih dalam rentang startDate
+        DateTime nextStartDay = endDate.AddDays(-((currentPage + 1) * pageSize));
+        if (nextStartDay.Date >= startDate.Date)
         {
-            AccumulationService.SaveAccumulation(date, shift, latestTotal);
+            currentPage++;
+            LoadPaginatedData();
         }
-        else
-        {
-            // Jika sudah ada, hanya save DELTA (selisih)
-            // Supaya tidak double-count
-            int delta = latestTotal - stored.TotalSeconds;
-            if (delta > 0)
-            {
-                AccumulationService.SaveAccumulation(date, shift, delta);
-            }
-        }
-        
-        // Return total terbaru dari database
-        var updatedRecord = AccumulationService.GetAccumulation(date, shift);
-        return updatedRecord?.TotalSeconds ?? 0;
     }
 
+    private void PreviousPage()
+    {
+        if (currentPage > 0)
+        {
+            currentPage--;
+            LoadPaginatedData();
+        }
+    }
+
+    private void ChangePageSize(ChangeEventArgs e)
+    {
+        if (int.TryParse(e.Value?.ToString(), out int newSize))
+        {
+            pageSize = newSize;
+            currentPage = 0; 
+            LoadPaginatedData();
+        }
+    }
+
+    private int GetShiftAccumulationAndSave(DateTime date, int shift)
+    {
+    // 1. PROTEKSI: Jangan simpan jika tanggal lebih dari hari ini
+    // Ini untuk mencegah bug tanggal 25-31 Januari muncul kembali
+    if (date.Date > DateTime.Now.Date) 
+        {
+        return 0; 
+        }
+
+    // 2. Gunakan 'var' untuk menghindari error tipe data jika Model berubah
+    var stored = AccumulationService.GetAccumulation(date, shift);
+    
+    // Pastikan fungsi ini ada dan tidak error
+    int latestTotal = CalculateShiftAccumulation(date, shift);
+    
+    if (stored == null)
+        {
+        AccumulationService.SaveAccumulation(date, shift, latestTotal);
+        }
+    else
+        {
+        // Hitung selisih (delta)
+        int delta = latestTotal - stored.TotalSeconds;
+        if (delta > 0)
+        {
+            AccumulationService.SaveAccumulation(date, shift, delta);
+        }
+    }
+    
+    // Ambil data terbaru setelah di-update
+    var updatedRecord = AccumulationService.GetAccumulation(date, shift);
+    return updatedRecord?.TotalSeconds ?? 0;
+}   
     private void UpdateAccumulationIfNeeded()
     {
         // Update akumulasi hanya untuk hari ini (untuk catch data terbaru)
@@ -294,18 +428,20 @@
         
         // Akumulasi semua timer data (Process Stop + Machine Stop) dalam range shift tersebut
         int totalSeconds = 0;
-        
-        // Combine semua nama mesin (process stop + machine stop)
         var allMachines = new List<string>(processStopNames);
         allMachines.AddRange(machineStopNames);
         
         foreach (var machine in allMachines)
         {
-            var fullName = $"{shiftLabel} - {machine}";
+            // Tambahkan selectedLine ke kriteria pencarian jika kolom database Anda mendukung
+            // Atau filter logs berdasarkan properti Line jika ada di model ErrorLog
+            var fullName = $"S{shift} - {machine}";
+            
             var logsInRange = logs
                 .Where(log => log.nama_mesin_proses == fullName && 
-                             log.waktu >= shiftStart && 
-                             log.waktu < shiftEnd)
+                              log.waktu >= shiftStart && 
+                              log.waktu < shiftEnd)
+                              
                 .ToList();
             
             totalSeconds += logsInRange.Sum(log => log.data_timer);
@@ -313,6 +449,7 @@
         
         return totalSeconds;
     }
+
 
     private string FormatTimer(int seconds)
     {
@@ -365,4 +502,5 @@
         public string Shift3 { get; set; } = "";
     }
 }
+
 
