@@ -576,6 +576,7 @@
         transform: none;
         max-width: none;
         max-height: none;
+        background-size: 100% 100%;
     }
     
     .production-content-wrapper {
