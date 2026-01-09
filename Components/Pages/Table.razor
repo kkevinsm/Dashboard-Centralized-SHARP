@@ -7,36 +7,66 @@
 @inject ShiftAccumulationService AccumulationService
 
 <style>
+    /* Tambahkan garis pada tabel */
+    .table-minimal {
+        /* Mengunci lebar kolom agar rata atas-bawah */
+        table-layout: fixed;
+        width: 100%;
+        border-collapse: collapse;
+        border: 2px solid #dee2e6; /* Garis luar tabel */
+    }
     /* Sesuaikan di sini */
     .table-minimal th {
-        font-size: 22px;       /* ukuran header (DATE / SHIFT) */
+        font-size: 16px;       /* ukuran header (DATE / SHIFT) */
         font-weight: 700;
         letter-spacing: 0.6px;
-        padding: 20px 12px;    /* vertical / horizontal padding */
+        padding: 15px 10px;    /* vertical / horizontal padding */
         color: #000;
+        border-bottom: 2px solid #dee2e6;
+        text-align: center;
     }
     .table-minimal td {
-        font-size: 20px;       /* ukuran isi tabel (angka "Mins") */
+        font-size: 18px;       /* ukuran isi tabel (angka "Mins") */
         font-weight: 400;      /* pastikan tidak bold */
-        padding: 18px 12px;
         vertical-align: middle;
+        /* Garis tengah vertikal disamakan ketebalannya */
+        border-bottom: 10px solid #eee;
+        padding: 12px 8px;
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    }
+
+    /* Menghilangkan garis terakhir di sisi paling kanan */
+    .table-minimal th:last-child, 
+    .table-minimal td:last-child {
+        border-right: none;
+    }
+    
     }
     /* Posisi kolom DATE agar sejajar dengan label modal */
     .table-minimal td:first-child,
     .table-minimal th:first-child {
         text-align: left;
-        padding-left: 28px;    /* sesuaikan offset kiri untuk alignment */
-        vertical-align: middle;
+        padding-left: 40px;    /* sesuaikan offset kiri untuk alignment */
+        width: 25%; /* Memberi ruang lebih untuk teks hari & tanggal */
+    }
+        .table-minimal th:nth-child(2),
+        .table-minimal th:nth-child(3),
+        .table-minimal th:nth-child(4) {
+        width: 18%;
+    }
     }
     .table-minimal .btn-sm {
-        font-size: 15px;
-        padding: 8px 12px;
-        font-weight: 800;
-        border-radius: 10px;
+        font-size: 13px;
+        padding: 5px 10px;
+        font-weight: 700;
+        border-radius: 6px;
     }
     @@media (max-width: 576px) {
         .table-minimal th { font-size: 18px; }
-        .table-minimal td { font-size: 16px; padding: 12px 8px; }
+        .table-minimal td { font-size: 16px; }
     }
 </style>
 
