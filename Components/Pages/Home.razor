@@ -13,7 +13,7 @@
 <button class="carousel-nav prev" @onclick="PreviousPage" disabled="@(currentPage == 0)">
     ‹
 </button>
-<button class="carousel-nav next" @onclick="NextPage" disabled="@(currentPage == 2)">
+<button class="carousel-nav next" @onclick="NextPage" disabled="@(currentPage == 1)">
     ›
 </button>
 
@@ -21,11 +21,10 @@
 <div class="carousel-indicators">
     <div class="carousel-indicator @(currentPage == 0 ? "active" : "")" @onclick="() => GoToPage(0)"></div>
     <div class="carousel-indicator @(currentPage == 1 ? "active" : "")" @onclick="() => GoToPage(1)"></div>
-    <div class="carousel-indicator @(currentPage == 2 ? "active" : "")" @onclick="() => GoToPage(2)"></div>
 </div>
 
 <div class="dashboard-carousel">
-    <div class="carousel-container" style="transform: translateX(-@((currentPage * 33.333).ToString("0.000", System.Globalization.CultureInfo.InvariantCulture))%);">
+    <div class="carousel-container" style="transform: translateX(-@(currentPage * 50)%);">
         
         <!-- PAGE 1: Card Dashboard -->
         <div class="carousel-page">
@@ -303,118 +302,6 @@
                 </div>
         </div>
         
-        <!-- PAGE 3: Counter Dashboard -->
-        <div class="carousel-page">
-            <div class="counter-dashboard-container @(isDarkMode ? "dark-mode" : "light-mode")">
-                <!-- Dark/Light Mode Toggle -->
-                <button class="theme-toggle-btn" @onclick="ToggleTheme">
-                    @if (isDarkMode)
-                    {
-                        <span>☀️</span>
-                    }
-                    else
-                    {
-                        <span>🌙</span>
-                    }
-                </button>
-                
-                <div class="counter-header">
-                    <div class="counter-header-left">
-                    </div>
-                </div>
-
-                <div class="counter-lines-container">
-                    <!-- LINE A -->
-                    <div class="counter-line-section">
-                        <div class="counter-line-header">
-                            <div>
-                                <h2 class="counter-line-title">COUNTER LINE A</h2>
-                                <h3 class="counter-line-model">ESMI000TGG</h3>
-                            </div>
-                        </div>
-
-                        <div class="counter-cards-grid">
-                            <!-- Row 1: Main Counter (Full Width) -->
-                            <div class="counter-main-card counter-row-full">
-                                <div class="counter-main-number">1200</div>
-                                <div class="counter-main-label">Unit</div>
-                            </div>
-
-                            <!-- Row 2: Target Plan & Difference (Side by Side) -->
-                            <div class="counter-secondary-card">
-                                <div class="counter-secondary-label">TARGET PLAN</div>
-                                <div class="counter-secondary-number">-1300</div>
-                                <div class="counter-secondary-badge">Unit</div>
-                            </div>
-
-                            <div class="counter-secondary-card">
-                                <div class="counter-secondary-label">DIFFERENCE</div>
-                                <div class="counter-secondary-number">-1300</div>
-                                <div class="counter-secondary-badge">Unit</div>
-                            </div>
-                        
-                            <!-- Row 3: Process Stop & Machine Stop (Side by Side) -->
-                            <div class="counter-bottom-card">
-                                <div class="counter-bottom-label">PROCESS STOP</div>
-                                <div class="counter-bottom-number">@GetProcessStopTimeValue("A")</div>
-                                <div class="counter-bottom-badge">@GetProcessStopTimeUnit("A")</div>
-                            </div>
-
-                            <div class="counter-bottom-card">
-                                <div class="counter-bottom-label">MACHINE STOP</div>
-                                <div class="counter-bottom-number">@GetMachineStopTimeValue("A")</div>
-                                <div class="counter-bottom-badge">@GetMachineStopTimeUnit("A")</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- LINE B -->
-                    <div class="counter-line-section">
-                        <div class="counter-line-header">
-                            <div>
-                                <h2 class="counter-line-title">COUNTER LINE B</h2>
-                                <h3 class="counter-line-model">EST80MWPK</h3>
-                            </div>
-                        </div>
-
-                        <div class="counter-cards-grid">
-                            <!-- Row 1: Main Counter (Full Width) -->
-                            <div class="counter-main-card counter-row-full">
-                                <div class="counter-main-number">1200</div>
-                                <div class="counter-main-label">Unit</div>
-                            </div>
-
-                            <!-- Row 2: Target Plan & Difference (Side by Side) -->
-                            <div class="counter-secondary-card">
-                                <div class="counter-secondary-label">TARGET PLAN</div>
-                                <div class="counter-secondary-number">-1300</div>
-                                <div class="counter-secondary-badge">Unit</div>
-                            </div>
-
-                            <div class="counter-secondary-card">
-                                <div class="counter-secondary-label">DIFFERENCE</div>
-                                <div class="counter-secondary-number">-1300</div>
-                                <div class="counter-secondary-badge">Unit</div>
-                            </div>
-                        
-                            <!-- Row 3: Process Stop & Machine Stop (Side by Side) -->
-                            <div class="counter-bottom-card">
-                                <div class="counter-bottom-label">PROCESS STOP</div>
-                                <div class="counter-bottom-number">@GetProcessStopTimeValue("B")</div>
-                                <div class="counter-bottom-badge">@GetProcessStopTimeUnit("B")</div>
-                            </div>
-
-                            <div class="counter-bottom-card">
-                                <div class="counter-bottom-label">MACHINE STOP</div>
-                                <div class="counter-bottom-number">@GetMachineStopTimeValue("B")</div>
-                                <div class="counter-bottom-badge">@GetMachineStopTimeUnit("B")</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
     </div>
 </div>
 
@@ -423,7 +310,6 @@
     private System.Threading.Timer? timer;
     private string currentShift = "S1";
     private int currentPage = 0;
-    private bool isDarkMode = true; // Default dark mode
     
     private List<string> processStopNames = new List<string>
     {
@@ -490,7 +376,7 @@
     // Carousel Navigation
     private void NextPage()
     {
-        if (currentPage < 2) currentPage++;
+        if (currentPage < 1) currentPage++;
     }
 
     private void PreviousPage()
@@ -501,12 +387,6 @@
     private void GoToPage(int page)
     {
         currentPage = page;
-    }
-
-    // Toggle Dark/Light Mode
-    private void ToggleTheme()
-    {
-        isDarkMode = !isDarkMode;
     }
 
     // Line A Processes (sama dengan urutan mesinNames)
