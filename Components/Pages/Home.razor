@@ -25,7 +25,7 @@
 </div>
 
 <div class="dashboard-carousel">
-    <div class="carousel-container" style="transform: translateX(-@(currentPage * 33.333)%);">
+    <div class="carousel-container" style="transform: translateX(-@((currentPage * 33.333).ToString("0.000", System.Globalization.CultureInfo.InvariantCulture))%);">
         
         <!-- PAGE 1: Card Dashboard -->
         <div class="carousel-page">
