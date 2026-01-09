@@ -453,10 +453,9 @@
     border-radius: 12px;
     padding: 16px 20px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-    min-width: 130px;
-    max-width: 180px; /* Tambah max-width agar tidak terlalu lebar */
+    width: 160px; /* Fixed width agar tidak melebar */
     text-align: center;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 2px solid transparent;
 }
 
@@ -490,10 +489,16 @@
 }
 
 .summary-card-number {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 900;
     line-height: 1;
     margin: 8px 0;
+    min-height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-break: break-all;
+    overflow-wrap: break-word;
 }
 
 .summary-card-new.process-stop .summary-card-number {
