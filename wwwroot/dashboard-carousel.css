@@ -31,7 +31,7 @@
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     width: 300%; /* 3 pages */
     height: 100%;
-    overflow: hidden;
+    overflow: hidden; /* Added to prevent scroll */
 }
 
 .carousel-page {
@@ -40,7 +40,7 @@
     width: 33.333%;
     flex-shrink: 0;
     height: 100vh;
-    overflow: hidden;
+    overflow: hidden; /* Default no scroll */
 }
 
 /* Page 1: Allow scroll for card dashboard */
@@ -655,13 +655,13 @@
 /* Theme Toggle Button */
 .theme-toggle-btn {
     position: absolute;
-    bottom: 15px;  /* Pindah ke bawah - ubah top menjadi bottom */
+    top: 15px;
     right: 15px;
     z-index: 1000;
-    background: rgba(6, 122, 255, 0.9);
+    background: rgba(74, 144, 226, 0.9);
     border: none;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
