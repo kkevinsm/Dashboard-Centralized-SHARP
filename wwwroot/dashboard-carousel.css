@@ -29,15 +29,15 @@
 .carousel-container {
     display: flex;
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    width: 200%; /* 2 pages */
+    width: 300%; /* 3 pages */
     height: 100%;
     overflow: hidden; /* Added to prevent scroll */
 }
 
 .carousel-page {
-    min-width: 50%;
-    max-width: 50%;
-    width: 50%;
+    min-width: 33.333%;
+    max-width: 33.333%;
+    width: 33.333%;
     flex-shrink: 0;
     height: 100vh;
     overflow: hidden; /* Default no scroll */
@@ -50,9 +50,16 @@
 }
 
 /* Page 2: No scroll for production line view */
-.carousel-page:last-child {
+.carousel-page:nth-child(2) {
     overflow: hidden;
     position: relative;
+}
+
+/* Page 3: Counter Dashboard - No scroll */
+.carousel-page:nth-child(3) {
+    overflow: hidden;
+    position: relative;
+    background: #000000;
 }
 
 /* Carousel Navigation */
@@ -110,6 +117,7 @@
     position: fixed;
     bottom: 30px;
     left: 50%;
+    margin-left: 40px; /* Offset setengah dari sidebar collapsed (80px / 2) */
     transform: translateX(-50%);
     display: flex;
     justify-content: center;
@@ -120,9 +128,14 @@
     padding: 8px 16px;
     border-radius: 25px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    margin: 0;
     width: auto;
     max-width: 120px;
+    transition: margin-left 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* When sidebar is expanded, adjust center position */
+.carousel-indicators.sidebar-expanded {
+    margin-left: 125px; /* Offset setengah dari sidebar expanded (250px / 2) */
 }
 
 .carousel-indicator {
@@ -569,233 +582,363 @@
     right: 320px;
 }
 
-/* Responsive Design */
-
-/* Special handling for full HD resolution and above - Keep exact positioning */
-@media (min-width: 1840px) {
-    .production-line-container::before {
-        width: calc(100vw - 80px);
-        height: 100vh;
-        top: 0;
-        left: 0;
-        transform: none;
-        max-width: none;
-        max-height: none;
-        background-size: 100% 100%;
-    }
-    
-    .production-content-wrapper {
-        width: calc(100vw - 80px);
-        height: 100vh;
-        top: 0;
-        left: 0;
-        transform: none;
-        max-width: none;
-        max-height: none;
-    }
+/* Counter Dashboard Page 3 Styles */
+.counter-dashboard-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Dark Mode (Default) */
+.counter-dashboard-container.dark-mode {
+    background: #000000;
+    color: #ffffff;
+}
+
+.counter-dashboard-container.dark-mode .counter-line-section {
+    background: #000000;
+    border-color: #333;
+}
+
+.counter-dashboard-container.dark-mode .counter-line-title {
+    color: #ffffff;
+}
+
+.counter-dashboard-container.dark-mode .counter-line-model {
+    color: #ff4444;
+}
+
+.counter-dashboard-container.dark-mode .counter-main-card,
+.counter-dashboard-container.dark-mode .counter-secondary-card,
+.counter-dashboard-container.dark-mode .counter-bottom-card {
+    background: #000000;
+    border-color: #4a90e2;
+}
+
+.counter-dashboard-container.dark-mode .counter-secondary-label,
+.counter-dashboard-container.dark-mode .counter-bottom-label {
+    color: #ffffff;
+}
+
+/* Light Mode */
+.counter-dashboard-container.light-mode {
+    background: #f5f5f5;
+    color: #000000;
+}
+
+.counter-dashboard-container.light-mode .counter-line-section {
+    background: #ffffff;
+    border-color: #e0e0e0;
+}
+
+.counter-dashboard-container.light-mode .counter-line-title {
+    color: #1a1a1a;
+}
+
+.counter-dashboard-container.light-mode .counter-line-model {
+    color: #ff4444;
+}
+
+.counter-dashboard-container.light-mode .counter-main-card,
+.counter-dashboard-container.light-mode .counter-secondary-card,
+.counter-dashboard-container.light-mode .counter-bottom-card {
+    background: #ffffff;
+    border-color: #4a90e2;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.counter-dashboard-container.light-mode .counter-secondary-label,
+.counter-dashboard-container.light-mode .counter-bottom-label {
+    color: #333333;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    position: absolute;
+    bottom: 15px;  /* Pindah ke bawah - ubah top menjadi bottom */
+    right: 15px;
+    z-index: 1000;
+    background: rgba(6, 122, 255, 0.9);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle-btn:hover {
+    background: rgba(74, 144, 226, 1);
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.theme-toggle-btn:active {
+    transform: scale(0.95);
+}
+
+.counter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+
+.counter-header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.counter-logo {
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.counter-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.counter-lines-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Line Section */
+.counter-line-section {
+    background: #000000;
+    border: 2px solid #333;
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+}
+
+.counter-line-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.counter-line-title {
+    font-size: 2rem; 
+    font-weight: 900;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.counter-line-model {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #ff4444;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.counter-unit-badge {
+    background: #4a90e2;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+/* Counter Cards Grid */
+.counter-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    flex: 1;
+}
+
+/* Counter row structure */
+.counter-row-full {
+    grid-column: 1 / -1;
+}
+
+/* Main Counter Card */
+.counter-main-card {
+    background: #000000;
+    border: 3px solid #4a90e2;
+    border-radius: 12px;
+    padding: 25px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.counter-main-number {
+    font-size: 6rem;  /* Ukuran angka utama - ubah ini untuk lebih besar/kecil */
+    font-weight: 900;
+    color: #ff4444;
+    line-height: 1;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.counter-main-label {
+    background: #4a90e2;
+    color: white;
+    padding: 7px 18px;  /* Ukuran badge - ubah padding */
+    border-radius: 12px;
+    font-size: 0.95rem;  /* Ukuran text badge - ubah ini */
+    font-weight: 700;
+}
+
+/* Secondary Counter Cards */
+.counter-secondary-card {
+    background: #000000;
+    border: 3px solid #4a90e2;
+    border-radius: 12px;
+    padding: 22px 12px;  /* Tinggi card - ubah padding vertical (22px) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.counter-secondary-label {
+    font-size: 0.75rem;  /* Ukuran label - ubah ini */
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.counter-secondary-number {
+    font-size: 4rem;  /* Ukuran angka secondary - ubah ini untuk lebih besar/kecil */
+    font-weight: 900;
+    color: #ff4444;
+    line-height: 1;
+    margin: 8px 0;
+}
+
+.counter-secondary-badge {
+    background: #4a90e2;
+    color: white;
+    padding: 5px 14px;  /* Ukuran badge - ubah padding */
+    border-radius: 10px;
+    font-size: 0.75rem;  /* Ukuran text badge - ubah ini */
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+/* Bottom Row Cards */
+.counter-bottom-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.counter-bottom-card {
+    background: #000000;
+    border: 3px solid #4a90e2;
+    border-radius: 12px;
+    padding: 22px 10px;  /* Tinggi card - ubah padding vertical (22px) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.counter-bottom-label {
+    font-size: 0.7rem;  /* Ukuran label - ubah ini */
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.counter-bottom-number {
+    font-size: 4rem;  /* Ukuran angka bottom - ubah ini untuk lebih besar/kecil */
+    font-weight: 900;
+    color: #ff4444;
+    line-height: 1;
+    margin: 8px 0;
+}
+
+.counter-bottom-badge {
+    background: #4a90e2;
+    color: white;
+    padding: 4px 12px;  /* Ukuran badge - ubah padding */
+    border-radius: 8px;
+    font-size: 0.7rem;  /* Ukuran text badge - ubah ini */
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+/* Responsive for Counter Dashboard */
 @media (max-width: 1400px) {
-    .process-indicator {
-        width: 35px;
-        height: 35px;
+    .counter-main-number {
+        font-size: 5rem;
     }
     
-    .process-label {
-        font-size: 0.75rem;
-        padding: 6px 12px;
+    .counter-secondary-number {
+        font-size: 3rem;
     }
     
-    .summary-card {
-        min-width: 140px;
-        padding: 14px 16px;
-    }
-    
-    .summary-card-value {
+    .counter-bottom-number {
         font-size: 2rem;
-    }
-    
-    .line-label {
-        font-size: 4rem;
     }
 }
 
 @media (max-width: 1200px) {
-    .production-line-container {
-        height: 70vh;
+    .counter-cards-grid {
+        grid-template-columns: 1fr;
     }
     
-    .process-indicator {
-        width: 32px;
-        height: 32px;
-    }
-    
-    .process-label {
-        font-size: 0.7rem;
-        padding: 5px 10px;
-        left: 40px;
-    }
-    
-    .process-indicator:hover .process-label,
-    .process-indicator.error .process-label {
-        left: 45px;
-    }
-    
-    .line-label {
-        font-size: 3.5rem;
-    }
-    
-    .line-label.line-a {
-        right: 150px;
-    }
-    
-    .line-label.line-b {
-        right: 150px;
-    }
-}
-
-@media (max-width: 992px) {
-    .carousel-nav {
-        width: 45px;
-        height: 45px;
-        font-size: 1.8rem;
-    }
-    
-    .production-line-container {
-        height: 65vh;
-    }
-    
-    .process-indicator {
-        width: 28px;
-        height: 28px;
-    }
-    
-    .summary-card {
-        min-width: 120px;
-        padding: 12px;
-    }
-    
-    .summary-card-value {
-        font-size: 1.8rem;
-    }
-    
-    .line-summary-cards {
-        right: 15px;
-        gap: 10px;
-    }
-    
-    .line-label {
-        font-size: 3rem;
-        right: 130px;
+    .counter-bottom-row {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
-    .carousel-nav {
-        width: 40px;
-        height: 40px;
-        font-size: 1.5rem;
+    .counter-main-number {
+        font-size: 4rem;
     }
     
-    .carousel-nav.prev {
-        left: 10px;
-    }
-    
-    .carousel-nav.next {
-        right: 10px;
-    }
-    
-    .production-line-container {
-        height: 60vh;
-    }
-    
-    .process-indicator {
-        width: 24px;
-        height: 24px;
-    }
-    
-    .process-label {
-        font-size: 0.65rem;
-        padding: 4px 8px;
-        left: 30px;
-    }
-    
-    .process-indicator:hover .process-label,
-    .process-indicator.error .process-label {
-        left: 35px;
-    }
-    
-    .line-summary-cards {
-        position: static;
-        flex-direction: row;
-        justify-content: center;
-        margin-top: 15px;
-    }
-    
-    .summary-card {
-        min-width: 100px;
-        padding: 10px 12px;
-    }
-    
-    .summary-card-value {
-        font-size: 1.5rem;
-    }
-    
-    .summary-card-title {
-        font-size: 0.65rem;
-    }
-    
-    .line-label {
+    .counter-secondary-number {
         font-size: 2.5rem;
     }
     
-    .line-label.line-a,
-    .line-label.line-b {
-        right: 10px;
-    }
-}
-
-@media (max-width: 576px) {
-    .carousel-indicators {
-        bottom: 15px;
-        padding: 8px 15px;
+    .counter-bottom-number {
+        font-size: 1.8rem;
     }
     
-    .carousel-indicator {
-        width: 10px;
-        height: 10px;
-    }
-    
-    .carousel-indicator.active {
-        width: 28px;
-    }
-    
-    .production-line-container {
-        height: 55vh;
-        border-radius: 10px;
-    }
-    
-    .process-indicator {
-        width: 20px;
-        height: 20px;
-        border: 2px solid white;
-    }
-    
-    .process-label {
-        font-size: 0.6rem;
-        padding: 3px 6px;
-    }
-    
-    .summary-card {
-        min-width: 90px;
-        padding: 8px 10px;
-    }
-    
-    .summary-card-value {
-        font-size: 1.3rem;
-    }
-    
-    .line-label {
-        font-size: 2rem;
+    .counter-bottom-row {
+        grid-template-columns: 1fr;
     }
 }

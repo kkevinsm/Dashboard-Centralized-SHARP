@@ -217,4 +217,5 @@ D:/0. SOFTWARE/5.Vscode/Centralized_Dashboard/Dashboard-Centralized-SHARP/obj/De
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/CentralizedDashboard.pdb
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/CentralizedDashboard.genruntimeconfig.cache
 /Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/ref/CentralizedDashboard.dll
-/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/o5ixdmx0yl-{0}-0k8jnxmb4t-0k8jnxmb4t.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/85rzrxxgwd-{0}-k8jtlmvzt7-k8jtlmvzt7.gz
+/Users/mac/Documents/Codes/Dashboard-Centralized-SHARP/obj/Debug/net10.0/compressed/o5ixdmx0yl-{0}-yuvrrntmsh-yuvrrntmsh.gz
