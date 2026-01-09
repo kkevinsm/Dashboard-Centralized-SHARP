@@ -117,7 +117,6 @@
     position: fixed;
     bottom: 30px;
     left: 50%;
-    margin-left: 40px; /* Offset setengah dari sidebar collapsed (80px / 2) */
     transform: translateX(-50%);
     display: flex;
     justify-content: center;
@@ -128,14 +127,9 @@
     padding: 8px 16px;
     border-radius: 25px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin: 0;
     width: auto;
     max-width: 120px;
-    transition: margin-left 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-/* When sidebar is expanded, adjust center position */
-.carousel-indicators.sidebar-expanded {
-    margin-left: 125px; /* Offset setengah dari sidebar expanded (250px / 2) */
 }
 
 .carousel-indicator {
