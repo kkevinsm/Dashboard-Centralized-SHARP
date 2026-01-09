@@ -18,14 +18,14 @@
 </button>
 
 <!-- Page Indicators -->
-<div class="carousel-indicators">
+<div class="carousel-indicators @(sidebarExpanded ? "sidebar-expanded" : "")">
     <div class="carousel-indicator @(currentPage == 0 ? "active" : "")" @onclick="() => GoToPage(0)"></div>
     <div class="carousel-indicator @(currentPage == 1 ? "active" : "")" @onclick="() => GoToPage(1)"></div>
     <div class="carousel-indicator @(currentPage == 2 ? "active" : "")" @onclick="() => GoToPage(2)"></div>
 </div>
 
-<div class="dashboard-carousel">
-    <div class="carousel-container" style="transform: translateX(-@((currentPage * 33.333).ToString("F3", System.Globalization.CultureInfo.InvariantCulture))%);">
+<div class="dashboard-carousel @(sidebarExpanded ? "sidebar-expanded" : "")">
+    <div class="carousel-container" style="transform: translateX(-@(currentPage * 33.333)%);">
         
         <!-- PAGE 1: Card Dashboard -->
         <div class="carousel-page">
@@ -424,6 +424,7 @@
     private string currentShift = "S1";
     private int currentPage = 0;
     private bool isDarkMode = true; // Default dark mode
+    private bool sidebarExpanded = false; // Track sidebar state
     
     private List<string> processStopNames = new List<string>
     {
