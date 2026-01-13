@@ -109,8 +109,9 @@
 .carousel-indicators {
     position: fixed;
     bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 80px; /* Offset untuk sidebar collapsed */
+    right: 0;
+    transform: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -120,9 +121,15 @@
     padding: 8px 16px;
     border-radius: 25px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    margin: 0;
-    width: auto;
+    margin: 0 auto;
+    width: fit-content;
     max-width: 120px;
+    transition: left 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* When sidebar is expanded */
+.carousel-indicators.sidebar-expanded {
+    left: 250px; /* Offset untuk sidebar expanded */
 }
 
 .carousel-indicator {

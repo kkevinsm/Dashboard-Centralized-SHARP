@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="dashboard-carousel.css" />
 
 <!-- Carousel Navigation -->
-<button class="carousel-nav prev" @onclick="PreviousPage" disabled="@(currentPage == 0)">
+<button class="carousel-nav prev @(sidebarExpanded ? "sidebar-expanded" : "")" @onclick="PreviousPage" disabled="@(currentPage == 0)">
     ‹
 </button>
 <button class="carousel-nav next" @onclick="NextPage" disabled="@(currentPage == 1)">
@@ -18,13 +18,13 @@
 </button>
 
 <!-- Page Indicators -->
-<div class="carousel-indicators">
+<div class="carousel-indicators @(sidebarExpanded ? "sidebar-expanded" : "")">
     <div class="carousel-indicator @(currentPage == 0 ? "active" : "")" @onclick="() => GoToPage(0)"></div>
     <div class="carousel-indicator @(currentPage == 1 ? "active" : "")" @onclick="() => GoToPage(1)"></div>
 </div>
 
 <div class="dashboard-carousel">
-    <div class="carousel-container" style="transform: translateX(-@(currentPage * 50)%);">
+    <div class="carousel-container" style="transform: translateX(-@((currentPage * 50).ToString(System.Globalization.CultureInfo.InvariantCulture))%);">
         
         <!-- PAGE 1: Card Dashboard -->
         <div class="carousel-page">
@@ -310,6 +310,7 @@
     private System.Threading.Timer? timer;
     private string currentShift = "S1";
     private int currentPage = 0;
+    private bool sidebarExpanded = false;
     
     private List<string> processStopNames = new List<string>
     {

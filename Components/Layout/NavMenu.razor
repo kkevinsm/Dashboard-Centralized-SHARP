@@ -49,12 +49,13 @@
     {
         IsCollapsed = !IsCollapsed;
         
-        // Toggle class on dashboard carousel and navigation buttons
+        // Toggle class on dashboard carousel, navigation buttons, and indicators
         if (IsCollapsed)
         {
             await JSRuntime.InvokeVoidAsync("eval", @"
                 document.querySelector('.dashboard-carousel')?.classList.remove('sidebar-expanded');
                 document.querySelector('.carousel-nav.prev')?.classList.remove('sidebar-expanded');
+                document.querySelector('.carousel-indicators')?.classList.remove('sidebar-expanded');
             ");
         }
         else
@@ -62,6 +63,7 @@
             await JSRuntime.InvokeVoidAsync("eval", @"
                 document.querySelector('.dashboard-carousel')?.classList.add('sidebar-expanded');
                 document.querySelector('.carousel-nav.prev')?.classList.add('sidebar-expanded');
+                document.querySelector('.carousel-indicators')?.classList.add('sidebar-expanded');
             ");
         }
     }
